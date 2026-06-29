@@ -1,0 +1,319 @@
+from __future__ import annotations
+
+from datetime import datetime
+from typing import Any
+
+from sqlalchemy import (
+    DateTime,
+    Float,
+    ForeignKey,
+    Index,
+    Integer,
+    JSON,
+    String,
+    Text,
+    UniqueConstraint,
+    func,
+)
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+
+
+class Base(DeclarativeBase):
+    pass
+
+
+class MotorcycleSchool(Base):
+    __tablename__ = "motorcycle_schools"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    yandex_id: Mapped[str] = mapped_column(String(32), unique=True, nullable=False)
+
+    title: Mapped[str] = mapped_column(Text, nullable=False)
+    address: Mapped[str | None] = mapped_column(Text)
+    additional_address: Mapped[str | None] = mapped_column(Text)
+    seoname: Mapped[str | None] = mapped_column(Text)
+
+    longitude: Mapped[float | None] = mapped_column(Float)
+    latitude: Mapped[float | None] = mapped_column(Float)
+
+    rating_count: Mapped[int | None] = mapped_column(Integer)
+    rating_value: Mapped[float | None] = mapped_column(Float)
+    review_count: Mapped[int | None] = mapped_column(Integer)
+
+    source_payload: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False)
+
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime, server_default=func.current_timestamp(), nullable=False
+    )
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime,
+        server_default=func.current_timestamp(),
+        onupdate=func.current_timestamp(),
+        nullable=False,
+    )
+
+    categories: Mapped[list[SchoolCategory]] = relationship(
+        back_populates="school", cascade="all, delete-orphan"
+    )
+    metro_stations: Mapped[list[SchoolMetroStation]] = relationship(
+        back_populates="school", cascade="all, delete-orphan"
+    )
+    phones: Mapped[list[SchoolPhone]] = relationship(
+        back_populates="school", cascade="all, delete-orphan"
+    )
+    social_links: Mapped[list[SchoolSocialLink]] = relationship(
+        back_populates="school", cascade="all, delete-orphan"
+    )
+    urls: Mapped[list[SchoolUrl]] = relationship(
+        back_populates="school", cascade="all, delete-orphan"
+    )
+
+    __table_args__ = (
+        Index("ix_motorcycle_schools_title", "title"),
+        Index("ix_motorcycle_schools_geo", "longitude", "latitude"),
+        Index("ix_motorcycle_schools_rating_value", "rating_value"),
+        Index("ix_motorcycle_schools_seoname", "seoname"),
+    )
+
+    @classmethod
+    def from_extracted_row(cls, row: dict[str, Any]) -> "MotorcycleSchool":
+        coordinates = row.get("coordinates") or []
+        rating_data = row.get("ratingData") or {}
+
+        school = cls(
+            yandex_id=str(row["id"]),
+            title=row["title"],
+            address=row.get("address"),
+            additional_address=row.get("additionalAddress"),
+            seoname=row.get("seoname"),
+            longitude=_coordinate(coordinates, 0),
+            latitude=_coordinate(coordinates, 1),
+            rating_count=rating_data.get("ratingCount"),
+            rating_value=rating_data.get("ratingValue"),
+            review_count=rating_data.get("reviewCount"),
+            source_payload=row,
+        )
+        school.phones = [
+            SchoolPhone.from_yandex_phone(position, phone)
+            for position, phone in enumerate(row.get("phones") or [])
+        ]
+        school.urls = [
+            SchoolUrl(position=position, url=url)
+            for position, url in enumerate(row.get("urls") or [])
+        ]
+        school.social_links = [
+            SchoolSocialLink.from_yandex_social_link(position, link)
+            for position, link in enumerate(row.get("socialLinks") or [])
+        ]
+        return school
+
+
+class Category(Base):
+    __tablename__ = "categories"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    yandex_id: Mapped[str] = mapped_column(String(32), unique=True, nullable=False)
+    name: Mapped[str] = mapped_column(Text, nullable=False)
+    class_name: Mapped[str | None] = mapped_column(Text)
+    seoname: Mapped[str | None] = mapped_column(Text)
+    plural_name: Mapped[str | None] = mapped_column(Text)
+
+    schools: Mapped[list[SchoolCategory]] = relationship(back_populates="category")
+
+    __table_args__ = (
+        Index("ix_categories_name", "name"),
+        Index("ix_categories_seoname", "seoname"),
+    )
+
+    @classmethod
+    def from_yandex_category(cls, category: dict[str, Any]) -> "Category":
+        return cls(
+            yandex_id=str(category["id"]),
+            name=category["name"],
+            class_name=category.get("class"),
+            seoname=category.get("seoname"),
+            plural_name=category.get("pluralName"),
+        )
+
+
+class SchoolCategory(Base):
+    __tablename__ = "school_categories"
+
+    school_id: Mapped[int] = mapped_column(
+        ForeignKey("motorcycle_schools.id"), primary_key=True
+    )
+    category_id: Mapped[int] = mapped_column(ForeignKey("categories.id"), primary_key=True)
+
+    school: Mapped[MotorcycleSchool] = relationship(back_populates="categories")
+    category: Mapped[Category] = relationship(back_populates="schools")
+
+
+class MetroStation(Base):
+    __tablename__ = "metro_stations"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    yandex_id: Mapped[str] = mapped_column(String(64), unique=True, nullable=False)
+    name: Mapped[str] = mapped_column(Text, nullable=False)
+    type: Mapped[str | None] = mapped_column(String(64))
+    color: Mapped[str | None] = mapped_column(String(16))
+    longitude: Mapped[float | None] = mapped_column(Float)
+    latitude: Mapped[float | None] = mapped_column(Float)
+
+    schools: Mapped[list[SchoolMetroStation]] = relationship(back_populates="station")
+
+    __table_args__ = (
+        Index("ix_metro_stations_name", "name"),
+        Index("ix_metro_stations_geo", "longitude", "latitude"),
+    )
+
+    @classmethod
+    def from_yandex_metro(cls, metro: dict[str, Any]) -> "MetroStation":
+        coordinates = metro.get("coordinates") or []
+        return cls(
+            yandex_id=str(metro["id"]),
+            name=metro["name"],
+            type=metro.get("type"),
+            color=metro.get("color"),
+            longitude=_coordinate(coordinates, 0),
+            latitude=_coordinate(coordinates, 1),
+        )
+
+
+class SchoolMetroStation(Base):
+    __tablename__ = "school_metro_stations"
+
+    school_id: Mapped[int] = mapped_column(
+        ForeignKey("motorcycle_schools.id"), primary_key=True
+    )
+    station_id: Mapped[int] = mapped_column(ForeignKey("metro_stations.id"), primary_key=True)
+    position: Mapped[int] = mapped_column(Integer, nullable=False)
+    distance: Mapped[str | None] = mapped_column(String(64))
+    distance_value: Mapped[float | None] = mapped_column(Float)
+    source_payload: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False)
+
+    school: Mapped[MotorcycleSchool] = relationship(back_populates="metro_stations")
+    station: Mapped[MetroStation] = relationship(back_populates="schools")
+
+    __table_args__ = (
+        UniqueConstraint(
+            "school_id", "position", name="uq_school_metro_stations_position"
+        ),
+        Index("ix_school_metro_stations_distance_value", "distance_value"),
+    )
+
+    @classmethod
+    def from_yandex_metro(
+        cls, position: int, metro: dict[str, Any], station: MetroStation
+    ) -> "SchoolMetroStation":
+        return cls(
+            station=station,
+            position=position,
+            distance=metro.get("distance"),
+            distance_value=metro.get("distanceValue"),
+            source_payload=metro,
+        )
+
+
+class SocialNetworkType(Base):
+    __tablename__ = "social_network_types"
+
+    code: Mapped[str] = mapped_column(String(64), primary_key=True)
+    name: Mapped[str] = mapped_column(Text, nullable=False)
+
+    links: Mapped[list[SchoolSocialLink]] = relationship(back_populates="type")
+
+    @classmethod
+    def from_code(cls, code: str) -> "SocialNetworkType":
+        return cls(code=code, name=code)
+
+
+class SchoolSocialLink(Base):
+    __tablename__ = "school_social_links"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    school_id: Mapped[int] = mapped_column(ForeignKey("motorcycle_schools.id"))
+    type_code: Mapped[str] = mapped_column(ForeignKey("social_network_types.code"))
+    position: Mapped[int] = mapped_column(Integer, nullable=False)
+    href: Mapped[str] = mapped_column(Text, nullable=False)
+    readable_href: Mapped[str | None] = mapped_column(Text)
+    source_payload: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False)
+
+    school: Mapped[MotorcycleSchool] = relationship(back_populates="social_links")
+    type: Mapped[SocialNetworkType] = relationship(back_populates="links")
+
+    __table_args__ = (
+        UniqueConstraint(
+            "school_id", "position", name="uq_school_social_links_position"
+        ),
+        Index("ix_school_social_links_type_code", "type_code"),
+    )
+
+    @classmethod
+    def from_yandex_social_link(
+        cls, position: int, link: dict[str, Any]
+    ) -> "SchoolSocialLink":
+        return cls(
+            type_code=link["type"],
+            position=position,
+            href=link["href"],
+            readable_href=link.get("readableHref"),
+            source_payload=link,
+        )
+
+
+class SchoolPhone(Base):
+    __tablename__ = "school_phones"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    school_id: Mapped[int] = mapped_column(ForeignKey("motorcycle_schools.id"))
+    position: Mapped[int] = mapped_column(Integer, nullable=False)
+    number: Mapped[str | None] = mapped_column(String(64))
+    value: Mapped[str | None] = mapped_column(String(64))
+    type: Mapped[str | None] = mapped_column(String(64))
+    info: Mapped[str | None] = mapped_column(Text)
+    extra_number: Mapped[str | None] = mapped_column(String(32))
+    source_payload: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False)
+
+    school: Mapped[MotorcycleSchool] = relationship(back_populates="phones")
+
+    __table_args__ = (
+        UniqueConstraint("school_id", "position", name="uq_school_phones_position"),
+        Index("ix_school_phones_value", "value"),
+        Index("ix_school_phones_number", "number"),
+    )
+
+    @classmethod
+    def from_yandex_phone(
+        cls, position: int, phone: dict[str, Any]
+    ) -> "SchoolPhone":
+        return cls(
+            position=position,
+            number=phone.get("number"),
+            value=phone.get("value"),
+            type=phone.get("type"),
+            info=phone.get("info"),
+            extra_number=phone.get("extraNumber"),
+            source_payload=phone,
+        )
+
+
+class SchoolUrl(Base):
+    __tablename__ = "school_urls"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    school_id: Mapped[int] = mapped_column(ForeignKey("motorcycle_schools.id"))
+    position: Mapped[int] = mapped_column(Integer, nullable=False)
+    url: Mapped[str] = mapped_column(Text, nullable=False)
+
+    school: Mapped[MotorcycleSchool] = relationship(back_populates="urls")
+
+    __table_args__ = (
+        UniqueConstraint("school_id", "position", name="uq_school_urls_position"),
+        Index("ix_school_urls_url", "url"),
+    )
+
+
+def _coordinate(coordinates: list[Any], index: int) -> float | None:
+    if len(coordinates) <= index:
+        return None
+    return coordinates[index]

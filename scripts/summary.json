@@ -1,0 +1,92 @@
+[
+  {
+    "index": 1,
+    "skip": "0",
+    "http_code": "200",
+    "file": "/home/PAK-CSPMZ/avnikitin/PycharmProjects/moto-db/scripts/responses/response_skip_0.json",
+    "error": null,
+    "totalResultCount": 83,
+    "items_count": 25
+  },
+  {
+    "index": 2,
+    "skip": "25",
+    "http_code": "200",
+    "file": "/home/PAK-CSPMZ/avnikitin/PycharmProjects/moto-db/scripts/responses/response_skip_25.json",
+    "error": null,
+    "totalResultCount": 92,
+    "items_count": 25
+  },
+  {
+    "index": 3,
+    "skip": "50",
+    "http_code": "200",
+    "file": "/home/PAK-CSPMZ/avnikitin/PycharmProjects/moto-db/scripts/responses/response_skip_50.json",
+    "error": null,
+    "totalResultCount": 137,
+    "items_count": 25
+  },
+  {
+    "index": 4,
+    "skip": "75",
+    "http_code": "200",
+    "file": "/home/PAK-CSPMZ/avnikitin/PycharmProjects/moto-db/scripts/responses/response_skip_75.json",
+    "error": null,
+    "totalResultCount": 184,
+    "items_count": 25
+  },
+  {
+    "index": 5,
+    "skip": "100",
+    "http_code": "200",
+    "file": "/home/PAK-CSPMZ/avnikitin/PycharmProjects/moto-db/scripts/responses/response_skip_100.json",
+    "error": null,
+    "totalResultCount": 230,
+    "items_count": 25
+  },
+  {
+    "index": 6,
+    "skip": "125",
+    "http_code": "200",
+    "file": "/home/PAK-CSPMZ/avnikitin/PycharmProjects/moto-db/scripts/responses/response_skip_125.json",
+    "error": null,
+    "totalResultCount": 281,
+    "items_count": 25
+  },
+  {
+    "index": 7,
+    "skip": "150",
+    "http_code": "200",
+    "file": "/home/PAK-CSPMZ/avnikitin/PycharmProjects/moto-db/scripts/responses/response_skip_150.json",
+    "error": null,
+    "totalResultCount": 328,
+    "items_count": 25
+  },
+  {
+    "index": 8,
+    "skip": "175",
+    "http_code": "200",
+    "file": "/home/PAK-CSPMZ/avnikitin/PycharmProjects/moto-db/scripts/responses/response_skip_175.json",
+    "error": null,
+    "totalResultCount": 380,
+    "items_count": 25
+  },
+  {
+    "index": 9,
+    "skip": "200",
+    "http_code": "200",
+    "file": "/home/PAK-CSPMZ/avnikitin/PycharmProjects/moto-db/scripts/responses/response_skip_200.json",
+    "error": null,
+    "totalResultCount": 427,
+    "items_count": 25
+  },
+  {
+    "index": 10,
+    "skip": "225",
+    "http_code": "200",
+    "file": "/home/PAK-CSPMZ/avnikitin/PycharmProjects/moto-db/scripts/responses/response_skip_225.json",
+    "error": null,
+    "totalResultCount": 474,
+    "items_count": 25
+  }
+]

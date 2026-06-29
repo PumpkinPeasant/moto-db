@@ -1,0 +1,12 @@
+[project]
+name = "moto-db"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "alembic>=1.18.5",
+    "fastapi>=0.138.1",
+    "psycopg>=3.3.4",
+    "sqlalchemy>=2.0.51",
+]
