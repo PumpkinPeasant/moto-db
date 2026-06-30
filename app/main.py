@@ -522,7 +522,7 @@ def serialize_school(school: MotorcycleSchool) -> dict:
         ],
         "metro": [
             serialize_school_metro_link(link)
-            for link in sorted(school.metro_stations, key=school_metro_name_sort_key)
+            for link in sorted(school.metro_stations, key=school_metro_distance_sort_key)
         ],
         "nearest_metro": serialize_school_metro_link(nearest_metro_link)
         if nearest_metro_link is not None
