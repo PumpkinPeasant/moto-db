@@ -137,6 +137,7 @@ def autocomplete_schools(
             "yandex_id": school.yandex_id,
             "title": school.title,
             "address": school.address,
+            "avatar_url": school.avatar_url,
             "rating_value": school.rating_value,
         }
         for school in session.scalars(stmt).all()
@@ -253,6 +254,7 @@ def serialize_school(school: MotorcycleSchool) -> dict:
         "address": school.address,
         "additional_address": school.additional_address,
         "seoname": school.seoname,
+        "avatar_url": school.avatar_url,
         "coordinates": {
             "longitude": school.longitude,
             "latitude": school.latitude,

@@ -23,6 +23,7 @@ FIELDS = [
     "phones",
     "socialLinks",
     "urls",
+    "businessImages",
 ]
 
 

@@ -93,7 +93,16 @@
     ],
     "urls": [
       "https://mtmotosport.ru/?yclid=6909829568816480255&utm_content=15935267219&utm_source=geoadv_maps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1363376/2a0000018640406dd3ccd0f7ec0b3cf6e021/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018640406dd3ccd0f7ec0b3cf6e021"
+      }
+    }
   },
   {
     "title": "Сигнал",
@@ -200,7 +209,16 @@
     ],
     "urls": [
       "http://www.signal77.ru/?yclid=4616213138427871231&utm_content=17538127329&utm_source=geoadv_maps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5584339/2a0000017d4252ecf54a72319799105dae0c/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "5584339_2a0000017d4252ecf54a72319799105dae0c"
+      }
+    }
   },
   {
     "title": "Топаз",
@@ -315,7 +333,16 @@
     ],
     "urls": [
       "https://topaz-auvto.ru/?yclid=171853842718130175&utm_content=17627231661&utm_source=geoadv_maps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/17649278/2a0000019aff2a1a9a2785a2bdd29a35d1f3/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019aff2a1a9a2785a2bdd29a35d1f3"
+      }
+    }
   },
   {
     "title": "Норд-Вест",
@@ -416,7 +443,16 @@
         "readableHref": "@avtoshkola_v_fili"
       }
     ],
-    "urls": null
+    "urls": null,
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5517178/2a0000017fda74ea134b722dcc266142f515/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "5517178_2a0000017fda74ea134b722dcc266142f515"
+      }
+    }
   },
   {
     "title": "Технологический колледж № 21, автошкола",
@@ -497,7 +533,16 @@
     "socialLinks": null,
     "urls": [
       "http://tk21avto.ru/?yclid=14633614351212740607&utm_content=17555291749&utm_source=geoadv_maps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14683384/2a00000196f6272437febb84f53f52a333b7/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000196f6272437febb84f53f52a333b7"
+      }
+    }
   },
   {
     "title": "КТМ",
@@ -594,7 +639,13 @@
     ],
     "urls": [
       "https://motoshkolaktm.ru/?yclid=3573955216267804671&utm_content=16472375692&utm_source=geoadv_maps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1684282/2a00000169903478cfcaa467a52d31f17efe/%s",
+        "id": "aBii77BWaTXaOXRImw7ErSJdEbLYtF1"
+      }
+    }
   },
   {
     "title": "Автошкола № 1",
@@ -703,7 +754,16 @@
     ],
     "urls": [
       "https://autonomer1.ru/?utm_campaign=maps_sh&utm_source=yandexmaps&yclid=6017179675972599807"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16789805/2a0000019b0228f00aaf201ccc8279d25a83/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "16789805_2a0000019b0228f00aaf201ccc8279d25a83"
+      }
+    }
   },
   {
     "title": "Мотошкола Неваляшка. Pro",
@@ -798,7 +858,13 @@
         "readableHref": "+79037221266"
       }
     ],
-    "urls": null
+    "urls": null,
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11373142/2a0000019029f0c412aaa193daf68563b804/%s",
+        "id": "11373142-2a0000019029f0c412aaa193daf68563b804"
+      }
+    }
   },
   {
     "title": "Автошкола 177",
@@ -908,7 +974,16 @@
     ],
     "urls": [
       "https://177-avtoshkola.ru/avtoshkola_177_na_metro_akademicheskaya/?utm_source=yandex&yclid=17330056985109856255"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11047345/2a0000018dd0e301b44415b34a4c82965ae5/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "11047345_2a0000018dd0e301b44415b34a4c82965ae5"
+      }
+    }
   },
   {
     "title": "Мотобаза.ру",
@@ -980,7 +1055,16 @@
     ],
     "urls": [
       "https://www.motobaza.ru/?yclid=18442912574391189503&utm_content=17768411362&utm_source=geoadv_maps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/7730813/2a00000184667f61cbe5ddd8f36b6892e6b0/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000184667f61cbe5ddd8f36b6892e6b0"
+      }
+    }
   },
   {
     "title": "Город Дорог",
@@ -1085,7 +1169,16 @@
     ],
     "urls": [
       "https://goroddorog-avto.ru/?utm_campaign=web-site&utm_content=filial_yaroslavskaya&utm_medium=geospravochnik&utm_source=yandex-maps&yclid=5992423100562276351"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1546166/2a00000185e24fa1ef8dddaa1232e8a385ba/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "1546166_2a00000185e24fa1ef8dddaa1232e8a385ba"
+      }
+    }
   },
   {
     "title": "Мотошкола. ру",
@@ -1189,7 +1282,16 @@
     ],
     "urls": [
       "https://www.motoshkola.ru/?yclid=8419592288241975295&utm_content=17682243042&utm_source=geoadv_maps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5457654/2a0000017ccfea585e139c3245465d4e29aa/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "5457654_2a0000017ccfea585e139c3245465d4e29aa"
+      }
+    }
   },
   {
     "title": "RideSmart",
@@ -1274,7 +1376,16 @@
     ],
     "urls": [
       "http://райдсмарт.рф/?yclid=12420909555264782335&utm_content=16130222577&utm_source=geoadv_maps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/467660/2a00000187985868a25f973e9e5dacb3166b/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000187985868a25f973e9e5dacb3166b"
+      }
+    }
   },
   {
     "title": "Город дорог",
@@ -1383,7 +1494,16 @@
     ],
     "urls": [
       "https://goroddorog-avto.ru/?yclid=13051792053111357439&utm_content=17645527422&utm_source=geoadv_maps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1546166/2a00000185e24fa1ef8dddaa1232e8a385ba/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "1546166_2a00000185e24fa1ef8dddaa1232e8a385ba"
+      }
+    }
   },
   {
     "title": "АвтоМир",
@@ -1497,7 +1617,16 @@
     ],
     "urls": [
       "http://pddna5.ru/?yclid=5065176800568016895&utm_content=16455365778&utm_source=geoadv_maps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10869107/2a0000018b39703f3c75c1b76e1acc149902/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018b39703f3c75c1b76e1acc149902"
+      }
+    }
   },
   {
     "title": "Союз",
@@ -1577,7 +1706,16 @@
     ],
     "urls": [
       "https://soyuz77.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10142335/2a0000018b0460e74ce91e2b46e9632c73c7/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "10142335_2a0000018b0460e74ce91e2b46e9632c73c7"
+      }
+    }
   },
   {
     "title": "Союз",
@@ -1658,7 +1796,16 @@
     "urls": [
       "https://soyuz77.ru/",
       "https://soyuz77.ru/contact-us"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10142335/2a0000018b0460e74ce91e2b46e9632c73c7/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "10142335_2a0000018b0460e74ce91e2b46e9632c73c7"
+      }
+    }
   },
   {
     "title": "Первая Передача",
@@ -1767,7 +1914,16 @@
     ],
     "urls": [
       "https://avtoshkola-pp.ru/?utm_campaign=organick&utm_content=rek_materiali&utm_medium=map_bissnes&utm_source=yandex&utm_term=osnovno"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16136444/2a00000199dcf31150379309e249c150bf92/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000199dcf31150379309e249c150bf92"
+      }
+    }
   },
   {
     "title": "Город Дорог",
@@ -1876,7 +2032,16 @@
     ],
     "urls": [
       "https://goroddorog-avto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1546166/2a00000185e24fa1ef8dddaa1232e8a385ba/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "1546166_2a00000185e24fa1ef8dddaa1232e8a385ba"
+      }
+    }
   },
   {
     "title": "Мото-Трек",
@@ -1980,7 +2145,16 @@
     ],
     "urls": [
       "https://mototrackschool.ru/?utm_medium=ya.buisness&utm_source=maps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5298780/2a00000184622b58722db510ef198f274b7c/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000184622b58722db510ef198f274b7c"
+      }
+    }
   },
   {
     "title": "МосМото",
@@ -2060,7 +2234,16 @@
     ],
     "urls": [
       "https://mos-moto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/17681761/2a0000019ca8b0977a8bb014a28c746fb845/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019ca8b0977a8bb014a28c746fb845"
+      }
+    }
   },
   {
     "title": "Авд",
@@ -2170,7 +2353,16 @@
     "urls": [
       "https://uc-avd.ru/",
       "https://www.avd-avtoshkola.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13947802/2a0000019377bcbafc73342801100809776b/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019377bcbafc73342801100809776b"
+      }
+    }
   },
   {
     "title": "На мото",
@@ -2265,7 +2457,16 @@
     ],
     "urls": [
       "https://na-moto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11371852/2a0000018ceaa5595f72124855fd827cf0ad/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "11371852_2a0000018ceaa5595f72124855fd827cf0ad"
+      }
+    }
   },
   {
     "title": "Главная Дорога",
@@ -2379,7 +2580,16 @@
     ],
     "urls": [
       "https://avtoshkola-moskvy.ru/avtoshkoly-v-moskve/avtoshkola-cao-belorusskaya/?roistat=yandex.map_belorusskaya"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14922087/2a0000019657bf7838450472a19000af27a9/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14922087_2a0000019657bf7838450472a19000af27a9"
+      }
+    }
   },
   {
     "title": "Евродрайв",
@@ -2506,7 +2716,16 @@
     ],
     "urls": [
       "https://evrodrive.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/2384989/2a000001742bdc1f5eb4e572fbc6d7eb0177/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "2384989_2a000001742bdc1f5eb4e572fbc6d7eb0177"
+      }
+    }
   },
   {
     "title": "Мотокросс Жостово",
@@ -2579,7 +2798,16 @@
     "urls": [
       "https://motoalex17.ru/",
       "https://motosport.club/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13818104/2a000001925364294c4685bc8cb691166f3c/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001925364294c4685bc8cb691166f3c"
+      }
+    }
   },
   {
     "title": "Эксперт Мото",
@@ -2663,7 +2891,16 @@
     ],
     "urls": [
       "https://expmoto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/15018138/2a00000194a7354046e13e3557f73e0cc40e/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000194a7354046e13e3557f73e0cc40e"
+      }
+    }
   },
   {
     "title": "Hermes",
@@ -2760,7 +2997,16 @@
     ],
     "urls": [
       "https://hermes-mos.ru/?utm_campaign=hermes-mos&utm_medium=msk&utm_source=ya"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14014620/2a000001927bf0ed139dfe16f62b0b25510d/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001927bf0ed139dfe16f62b0b25510d"
+      }
+    }
   },
   {
     "title": "Топаз",
@@ -2876,7 +3122,16 @@
     ],
     "urls": [
       "https://topaz-auvto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16418365/2a0000019afebf071d066ce26856b1c2c833/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019afebf071d066ce26856b1c2c833"
+      }
+    }
   },
   {
     "title": "Прайд",
@@ -2973,7 +3228,16 @@
     ],
     "urls": [
       "https://мото-прайд.рф/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13453452/2a0000018eb30636d86d42552d4750010b3f/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018eb30636d86d42552d4750010b3f"
+      }
+    }
   },
   {
     "title": "МотоТочка",
@@ -3070,7 +3334,16 @@
     ],
     "urls": [
       "https://motopoint.moscow/?utm_campaign=yandex_maps&utm_medium=organic&utm_source=yandex"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/920214/2a0000018828eba3b87c7bf84e12db79331e/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018828eba3b87c7bf84e12db79331e"
+      }
+    }
   },
   {
     "title": "Арго",
@@ -3198,7 +3471,16 @@
     ],
     "urls": [
       "https://argo-avto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/6310045/2a0000017f8720caa202e7777744c978afdc/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "6310045_2a0000017f8720caa202e7777744c978afdc"
+      }
+    }
   },
   {
     "title": "Универсал",
@@ -3284,7 +3566,16 @@
     "socialLinks": null,
     "urls": [
       "https://universal-driving.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/12594216/2a000001939675555983b0d8e1463125aef7/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001939675555983b0d8e1463125aef7"
+      }
+    }
   },
   {
     "title": "Автополис",
@@ -3390,7 +3681,13 @@
     ],
     "urls": [
       "https://autopolis-class.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5484072/2a0000017da45cd085954b4ebf1025e96db9/%s",
+        "id": "kMTqIUF7G_alg_-wTbcvwlQc7s965ARtp"
+      }
+    }
   },
   {
     "title": "Projectmoto",
@@ -3478,7 +3775,16 @@
     ],
     "urls": [
       "http://projectmoto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/18118126/2a0000019dd2cd236a79dac09f55c1e04f08/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019dd2cd236a79dac09f55c1e04f08"
+      }
+    }
   },
   {
     "title": "Стиль-Авто",
@@ -3586,7 +3892,16 @@
     "urls": [
       "https://auto24style.ru/",
       "https://auto24style.ru/bulvar-rokossovskogo-otkrytoe-shosse-d-12-str-2/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/367512/2a0000015dcb768925e6d21b3a54b3a99cd6/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "4264152"
+      }
+    }
   },
   {
     "title": "Центр образования автошкол столицы",
@@ -3674,7 +3989,16 @@
     "urls": [
       "https://coasdriving.ru/",
       "http://co-as.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1420183/2a00000166b0c72689aee7baa554861f160f/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "107807799"
+      }
+    }
   },
   {
     "title": "АСБ",
@@ -3771,7 +4095,16 @@
     ],
     "urls": [
       "https://asbmsk.ru/autoschools/narodnogo-opolcheniya"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16443717/2a0000019d3e8287e32158ed7c264cbf40cf/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "16443717_2a0000019d3e8287e32158ed7c264cbf40cf"
+      }
+    }
   },
   {
     "title": "Автошкола 177",
@@ -3875,7 +4208,16 @@
     ],
     "urls": [
       "https://177-avtoshkola.ru/avtoshkola_177_na_metro_aviamotornaya/?utm_source=yandex"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11047345/2a0000018dd0e301b44415b34a4c82965ae5/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "11047345_2a0000018dd0e301b44415b34a4c82965ae5"
+      }
+    }
   },
   {
     "title": "Мотошкола Юрия Степаненко",
@@ -3985,7 +4327,16 @@
     ],
     "urls": [
       "https://pravanamoto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10700956/2a0000018c1a8a56e5e0411a939d2ed5d351/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018c1a8a56e5e0411a939d2ed5d351"
+      }
+    }
   },
   {
     "title": "Мотошкола Казакофф моторс",
@@ -4085,7 +4436,13 @@
     ],
     "urls": [
       "https://moto-school.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/4504251/2a0000017aa55b8ab14e4633801eecb77519/%s",
+        "id": "hhnrNMDIu98zrVodcVE1KdByJOf5Vl"
+      }
+    }
   },
   {
     "title": "Звёздный мост",
@@ -4187,7 +4544,8 @@
     ],
     "urls": [
       "https://zmost.ru/"
-    ]
+    ],
+    "businessImages": null
   },
   {
     "title": "Альянс",
@@ -4279,7 +4637,16 @@
     ],
     "urls": [
       "https://alyans.msk.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13229990/2a00000190a813eca6051bf71d145c33027e/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000190a813eca6051bf71d145c33027e"
+      }
+    }
   },
   {
     "title": "Альянс",
@@ -4366,7 +4733,16 @@
     ],
     "urls": [
       "http://www.alyans.msk.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/927916/2a0000018752f7f206e95d5bd2313da4b8a8/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018752f7f206e95d5bd2313da4b8a8"
+      }
+    }
   },
   {
     "title": "Перспектива",
@@ -4469,7 +4845,16 @@
     "urls": [
       "http://avper.ru/",
       "http://avtoshkola-perspektiva.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/9709783/2a0000018a8aaac8b91f7186ae2c8fbfe121/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "9709783_2a0000018a8aaac8b91f7186ae2c8fbfe121"
+      }
+    }
   },
   {
     "title": "Чайка с 1976",
@@ -4579,7 +4964,16 @@
     "urls": [
       "https://chajka-s-1976.ru/",
       "https://avtoshkola-chayka.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/9849468/2a0000018bad5818ca36d623438ab5f4fc0d/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018bad5818ca36d623438ab5f4fc0d"
+      }
+    }
   },
   {
     "title": "МотоРайдер",
@@ -4669,7 +5063,16 @@
     ],
     "urls": [
       "https://motorider.pro/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16309447/2a0000019d500035572ce8b6f4090ededf18/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019d500035572ce8b6f4090ededf18"
+      }
+    }
   },
   {
     "title": "Техника",
@@ -4761,7 +5164,16 @@
     ],
     "urls": [
       "https://avtoshkola-tehnika.ru/?utm_source=yamaps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1974402/2a000001719dc09a803bc9acda3111e4b1f3/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "1974402_2a000001719dc09a803bc9acda3111e4b1f3"
+      }
+    }
   },
   {
     "title": "Hermes",
@@ -4858,7 +5270,16 @@
     ],
     "urls": [
       "https://hermes-mos.ru/?utm_campaign=hermes-mos&utm_medium=msk&utm_source=ya"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13524363/2a000001927bda4d02d3b2676418745f3dda/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001927bda4d02d3b2676418745f3dda"
+      }
+    }
   },
   {
     "title": "Ягуар",
@@ -4955,7 +5376,16 @@
     ],
     "urls": [
       "https://jaguar-avtoshkola.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/9728306/2a00000189e41feacda6cd30c0afb84d8c9d/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "9728306_2a00000189e41feacda6cd30c0afb84d8c9d"
+      }
+    }
   },
   {
     "title": "Акатегория",
@@ -5065,7 +5495,16 @@
     ],
     "urls": [
       "https://akategoriya.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1920875/2a0000016c412dcca317a5d1f59680f4fed9/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "1920875_2a0000016c412dcca317a5d1f59680f4fed9"
+      }
+    }
   },
   {
     "title": "Автофактор",
@@ -5154,7 +5593,16 @@
       "https://autofactor.ru/",
       "https://taplink.cc/motoshkola_avtofactor",
       "http://motoschool.autofactor.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13904936/2a00000194077a0b1ea8f9c154c7c672584e/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "13904936_2a00000194077a0b1ea8f9c154c7c672584e"
+      }
+    }
   },
   {
     "title": "Ixs",
@@ -5252,7 +5700,16 @@
     "socialLinks": null,
     "urls": [
       "http://www.ixs.su/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1058733/2a00000185347440d13073069af5fba8049f/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000185347440d13073069af5fba8049f"
+      }
+    }
   },
   {
     "title": "Автофактор",
@@ -5347,7 +5804,16 @@
     "urls": [
       "https://motoschool.autofactor.ru/",
       "https://autofactor.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13904936/2a00000194077a0b1ea8f9c154c7c672584e/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "13904936_2a00000194077a0b1ea8f9c154c7c672584e"
+      }
+    }
   },
   {
     "title": "Эндуро-школа Motochampions",
@@ -5445,7 +5911,16 @@
     ],
     "urls": [
       "http://motochampions.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/19303228/2a0000019cbf176f72952582247554993e5c/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "19303228_2a0000019cbf176f72952582247554993e5c"
+      }
+    }
   },
   {
     "title": "ЦАО",
@@ -5547,7 +6022,16 @@
     ],
     "urls": [
       "https://gai177.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/15219633/2a000001979c4b1935e37ade0654987dd358/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001979c4b1935e37ade0654987dd358"
+      }
+    }
   },
   {
     "title": "Motoshkola. club",
@@ -5658,7 +6142,16 @@
     ],
     "urls": [
       "http://motoshkola.club/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10228783/2a00000191d5b1cc170fd7ded47216dc4a4e/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000191d5b1cc170fd7ded47216dc4a4e"
+      }
+    }
   },
   {
     "title": "Мотор",
@@ -5767,7 +6260,16 @@
     ],
     "urls": [
       "https://avsmotor.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14699088/2a00000194fa7b8f577d90fc8fa5dbe6b419/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14699088_2a00000194fa7b8f577d90fc8fa5dbe6b419"
+      }
+    }
   },
   {
     "title": "Техника",
@@ -5859,7 +6361,16 @@
     ],
     "urls": [
       "https://avtoshkola-tehnika.ru/?utm_source=yamaps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1974402/2a000001719dc09a803bc9acda3111e4b1f3/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "1974402_2a000001719dc09a803bc9acda3111e4b1f3"
+      }
+    }
   },
   {
     "title": "Колесо",
@@ -5973,7 +6484,16 @@
     ],
     "urls": [
       "http://cooleso.ru/?utm_sourse=ymaps_andropova"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/18708590/2a0000019cfb3f6c3f0eed780700e8095c7c/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "18708590_2a0000019cfb3f6c3f0eed780700e8095c7c"
+      }
+    }
   },
   {
     "title": "Мотошкола Мосгортранс",
@@ -6052,7 +6572,13 @@
     "socialLinks": null,
     "urls": [
       "https://ukk.mosgortrans.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/3954938/2a000001757f121eff034d6a8e0fff1ced2f/%s",
+        "id": "6GEf7vZXMAdQOHz-xHL7YAU4Ai6G-oE-_"
+      }
+    }
   },
   {
     "title": "7 Небо",
@@ -6152,7 +6678,16 @@
         "readableHref": "+79850598948"
       }
     ],
-    "urls": null
+    "urls": null,
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11244149/2a0000018c99a3c7f392d2ba6844a092c88b/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "11244149_2a0000018c99a3c7f392d2ba6844a092c88b"
+      }
+    }
   },
   {
     "title": "Драйв",
@@ -6249,7 +6784,13 @@
     ],
     "urls": [
       "http://www.drive-msc.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/4565742/2a000001793ab8ad3fa948a63624eabe6eab/%s",
+        "id": "r4S8IlBhT9ssdCs0lJZdH9jnjAl2Gdo"
+      }
+    }
   },
   {
     "title": "Евродрайв",
@@ -6364,7 +6905,16 @@
     ],
     "urls": [
       "https://evrodrive.ru/avtoshkola-voykovskaya"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/2384989/2a000001742bdc1f5eb4e572fbc6d7eb0177/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "2384989_2a000001742bdc1f5eb4e572fbc6d7eb0177"
+      }
+    }
   },
   {
     "title": "Мотоняня",
@@ -6465,7 +7015,13 @@
     ],
     "urls": [
       "https://motonanny.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1903890/2a0000016afb1d6bc328c6234904fc59d793/%s",
+        "id": "gFRIH6UHsVXu5OLnL4YJks2FKkj70Hv"
+      }
+    }
   },
   {
     "title": "Альянс",
@@ -6568,7 +7124,16 @@
     ],
     "urls": [
       "http://alyans.msk.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/6363798/2a0000019152c6673b40e1c8a3521e339d69/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019152c6673b40e1c8a3521e339d69"
+      }
+    }
   },
   {
     "title": "Юность",
@@ -6680,7 +7245,16 @@
     ],
     "urls": [
       "https://avtounost.ru/?utm_campaign=maps_nov&utm_medium=cpc&utm_source=yandexmaps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14919466/2a000001955d95ecee45c2b45f4b4124c07d/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14919466_2a000001955d95ecee45c2b45f4b4124c07d"
+      }
+    }
   },
   {
     "title": "ФормулаСити",
@@ -6782,7 +7356,16 @@
     ],
     "urls": [
       "https://formulacity.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10648814/2a0000018abea77db50678674d5547bfc6e2/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018abea77db50678674d5547bfc6e2"
+      }
+    }
   },
   {
     "title": "Центр образования автошкол столицы",
@@ -6879,7 +7462,16 @@
     ],
     "urls": [
       "http://coasdriving.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1420183/2a00000166b0c72689aee7baa554861f160f/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "107807799"
+      }
+    }
   },
   {
     "title": "Техника",
@@ -6971,7 +7563,16 @@
     ],
     "urls": [
       "https://avtoshkola-tehnika.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1974402/2a000001719dc09a803bc9acda3111e4b1f3/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "1974402_2a000001719dc09a803bc9acda3111e4b1f3"
+      }
+    }
   },
   {
     "title": "Двс-авто",
@@ -7057,7 +7658,16 @@
     "socialLinks": null,
     "urls": [
       "https://автошкола-метро-семёновская.рф/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13455884/2a000001932603f4ab9380319fe21b212657/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001932603f4ab9380319fe21b212657"
+      }
+    }
   },
   {
     "title": "АСБ",
@@ -7206,7 +7816,16 @@
     ],
     "urls": [
       "https://asbmsk.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16443717/2a0000019d3e8287e32158ed7c264cbf40cf/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "16443717_2a0000019d3e8287e32158ed7c264cbf40cf"
+      }
+    }
   },
   {
     "title": "Колесо",
@@ -7325,7 +7944,16 @@
     ],
     "urls": [
       "http://cooleso.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/18708590/2a0000019cfb3f6c3f0eed780700e8095c7c/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "18708590_2a0000019cfb3f6c3f0eed780700e8095c7c"
+      }
+    }
   },
   {
     "title": "Flower of Life",
@@ -7432,7 +8060,16 @@
     ],
     "urls": [
       "https://motocross.school/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/9284964/2a0000018c0fd7e414d8215e905ab2d68d7c/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018c0fd7e414d8215e905ab2d68d7c"
+      }
+    }
   },
   {
     "title": "Парк МСК",
@@ -7529,7 +8166,16 @@
     ],
     "urls": [
       "https://www.parkmsk.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13941727/2a000001946a6fd6dae9adddd19ac354ad7c/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "13941727_2a000001946a6fd6dae9adddd19ac354ad7c"
+      }
+    }
   },
   {
     "title": "АвтоТест",
@@ -7626,7 +8272,16 @@
     ],
     "urls": [
       "https://autoshkola-avtotest.ru/?utm_campaign=autoshkola-avtotest&utm_medium=msk&utm_source=ya"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/15157522/2a00000194e0bde9e124211424afe5f039d0/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000194e0bde9e124211424afe5f039d0"
+      }
+    }
   },
   {
     "title": "Мотошкола РТУ МИРЭА",
@@ -7732,7 +8387,13 @@
     ],
     "urls": [
       "https://www.safemoto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1453927/2a000001699abc159810acb61dcc628e2cd7/%s",
+        "id": "APqJnETI1-NFggga4Mt3mu2yDwtITuhq"
+      }
+    }
   },
   {
     "title": "Победа",
@@ -7830,7 +8491,13 @@
     "urls": [
       "https://pddmos.ru/pdd-online/",
       "http://pddmos.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/2930751/2a0000017540c7dbb1374b4e5d8d4b5224e5/%s",
+        "id": "ycVffNG1NmyusoNJu1Tjv_PgcbwmQBac"
+      }
+    }
   },
   {
     "title": "Dofamin moto",
@@ -7927,7 +8594,8 @@
     ],
     "urls": [
       "http://www.motoshkola-moscow.ru/"
-    ]
+    ],
+    "businessImages": null
   },
   {
     "title": "Профи Мотостади",
@@ -8036,7 +8704,16 @@
     ],
     "urls": [
       "http://profi.motostudy.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/7740052/2a000001842e8e6ff978cbe4c8f6231dd959/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001842e8e6ff978cbe4c8f6231dd959"
+      }
+    }
   },
   {
     "title": "Дзен-мото",
@@ -8128,7 +8805,16 @@
     ],
     "urls": [
       "https://zen-moto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/998237/2a00000185a9cbf8d2d4e9c1035febe5ffff/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000185a9cbf8d2d4e9c1035febe5ffff"
+      }
+    }
   },
   {
     "title": "Юность +",
@@ -8214,7 +8900,16 @@
     "socialLinks": null,
     "urls": [
       "http://unostplus.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/790902/2a0000018559635bbe43a6b11785a7e3845e/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018559635bbe43a6b11785a7e3845e"
+      }
+    }
   },
   {
     "title": "Дилижанс",
@@ -8302,7 +8997,16 @@
     "socialLinks": null,
     "urls": [
       "http://dilijance-msk.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/918124/2a0000018712ff09550a5fd1a9b4b6b784d2/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018712ff09550a5fd1a9b4b6b784d2"
+      }
+    }
   },
   {
     "title": "Мотополигон",
@@ -8402,7 +9106,13 @@
     ],
     "urls": [
       "https://мотополигон.рф/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/2816622/2a00000172cc61a1b5334336ee87ecf017ae/%s",
+        "id": "TuruVYAHQcl3Er3jqTFHb9x1HNkpY4"
+      }
+    }
   },
   {
     "title": "ПОУ УСЦ Оого ДОСААФ России ЮВАО г. Москвы",
@@ -8514,7 +9224,16 @@
     ],
     "urls": [
       "https://www.dosaaf-auto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16487830/2a00000197f95bd8880db6d558868063e236/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000197f95bd8880db6d558868063e236"
+      }
+    }
   },
   {
     "title": "Юность",
@@ -8638,7 +9357,16 @@
     ],
     "urls": [
       "https://avtounost.ru/?utm_campaign=maps_sh&utm_medium=cpc&utm_source=yandexmaps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14919466/2a000001955d95ecee45c2b45f4b4124c07d/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14919466_2a000001955d95ecee45c2b45f4b4124c07d"
+      }
+    }
   },
   {
     "title": "Автошкола Аргос",
@@ -8750,7 +9478,16 @@
     ],
     "urls": [
       "https://argoc.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/2056672/2a0000016cbcec86f6b57cfea6e33e140bf9/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "2056672_2a0000016cbcec86f6b57cfea6e33e140bf9"
+      }
+    }
   },
   {
     "title": "Главная Дорога",
@@ -8864,7 +9601,16 @@
     ],
     "urls": [
       "https://avtoshkola-moskvy.ru/?roistat=yandex.map_kolomenskaya"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14922087/2a0000019657bf7838450472a19000af27a9/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14922087_2a0000019657bf7838450472a19000af27a9"
+      }
+    }
   },
   {
     "title": "Автошкола Мегаполис",
@@ -8962,7 +9708,16 @@
     ],
     "urls": [
       "https://avtoshkola-megapolis.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/859900/2a0000015e614b7a1b4a54f82f33125d6182/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "5069323"
+      }
+    }
   },
   {
     "title": "Союз",
@@ -9056,7 +9811,16 @@
     ],
     "urls": [
       "http://soyuz77.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10142335/2a0000018b0460e74ce91e2b46e9632c73c7/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "10142335_2a0000018b0460e74ce91e2b46e9632c73c7"
+      }
+    }
   },
   {
     "title": "Техника",
@@ -9148,7 +9912,16 @@
     ],
     "urls": [
       "https://avtoshkola-tehnika.ru/?utm_source=yamaps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1974402/2a000001719dc09a803bc9acda3111e4b1f3/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "1974402_2a000001719dc09a803bc9acda3111e4b1f3"
+      }
+    }
   },
   {
     "title": "Авто-Люкс",
@@ -9259,7 +10032,16 @@
     "urls": [
       "https://auto-moto-school.ru/",
       "http://a-svao.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5455550/2a0000018341117c5b96eeae4282041d940e/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018341117c5b96eeae4282041d940e"
+      }
+    }
   },
   {
     "title": "Университетская автошкола",
@@ -9362,7 +10144,16 @@
     ],
     "urls": [
       "https://www.univeravto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/6203011/2a00000180ce7ffa9dafb378bf8e96c5708f/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "6203011_2a00000180ce7ffa9dafb378bf8e96c5708f"
+      }
+    }
   },
   {
     "title": "Старт. Pro",
@@ -9452,7 +10243,16 @@
     ],
     "urls": [
       "https://www.motostart.pro/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/9728306/2a0000018896411ff742001cffbcdb883a01/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018896411ff742001cffbcdb883a01"
+      }
+    }
   },
   {
     "title": "Школа мотокросса Владимира Ярыгина",
@@ -9546,7 +10346,16 @@
     ],
     "urls": [
       "https://школамотокросса.рф/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14329771/2a0000019363f307b799f8972a1d1023ae32/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14329771_2a0000019363f307b799f8972a1d1023ae32"
+      }
+    }
   },
   {
     "title": "Like-o-moto",
@@ -9643,7 +10452,16 @@
     ],
     "urls": [
       "https://like-o-moto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/18098886/2a0000019e884367f8d759daede880afffd5/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019e884367f8d759daede880afffd5"
+      }
+    }
   },
   {
     "title": "Евродрайв",
@@ -9764,7 +10582,16 @@
     ],
     "urls": [
       "http://evrodrive.ru/avtoshkola-kaluzhskaya"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/2384989/2a000001742bdc1f5eb4e572fbc6d7eb0177/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "2384989_2a000001742bdc1f5eb4e572fbc6d7eb0177"
+      }
+    }
   },
   {
     "title": "7небо",
@@ -9867,7 +10694,16 @@
     "urls": [
       "http://sedmoye-nebo.ru/",
       "http://sedmoye-nebo.ru/contacts/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11244149/2a0000018c99a3c7f392d2ba6844a092c88b/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "11244149_2a0000018c99a3c7f392d2ba6844a092c88b"
+      }
+    }
   },
   {
     "title": "Формула Авто",
@@ -9982,7 +10818,16 @@
     ],
     "urls": [
       "http://form-auto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/3912953/2a00000176663a59c5c521375891a0f20c08/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "3912953_2a00000176663a59c5c521375891a0f20c08"
+      }
+    }
   },
   {
     "title": "Drive",
@@ -10124,7 +10969,16 @@
     ],
     "urls": [
       "http://drive-msc.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/17651669/2a0000019b314181857b9ca7ac7bba302501/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019b314181857b9ca7ac7bba302501"
+      }
+    }
   },
   {
     "title": "Автошкола № 1",
@@ -10243,7 +11097,16 @@
     ],
     "urls": [
       "https://autonomer1.ru/?utm_campaign=maps_per&utm_source=yandexmaps"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16789805/2a0000019b0228f00aaf201ccc8279d25a83/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "16789805_2a0000019b0228f00aaf201ccc8279d25a83"
+      }
+    }
   },
   {
     "title": "Автошкола 177",
@@ -10351,7 +11214,16 @@
     ],
     "urls": [
       "https://177-avtoshkola.ru/avtoshkola_177_na_mosfilmovskoj_ulitse_53/?utm_source=yandex"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11047345/2a0000018dd0e301b44415b34a4c82965ae5/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "11047345_2a0000018dd0e301b44415b34a4c82965ae5"
+      }
+    }
   },
   {
     "title": "Дорожно-правовые системы",
@@ -10465,7 +11337,16 @@
     ],
     "urls": [
       "https://avtodps.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16485345/2a0000019bc0f80596a9232c785da8de5425/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "16485345_2a0000019bc0f80596a9232c785da8de5425"
+      }
+    }
   },
   {
     "title": "На мото",
@@ -10567,7 +11448,16 @@
     ],
     "urls": [
       "https://na-moto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11371852/2a0000018ceaa5595f72124855fd827cf0ad/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "11371852_2a0000018ceaa5595f72124855fd827cf0ad"
+      }
+    }
   },
   {
     "title": "Вираж",
@@ -10646,7 +11536,16 @@
     ],
     "urls": [
       "https://777-00.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/9776062/2a0000018cb4e00e963e7cd31d226d8b69b3/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018cb4e00e963e7cd31d226d8b69b3"
+      }
+    }
   },
   {
     "title": "Автошкола им. Давыдова",
@@ -10757,7 +11656,13 @@
     "urls": [
       "https://oz-avtoschool.ru/avtomotoshkola-v-reutovo/",
       "https://oz-avtoschool.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/4234257/2a000001777d577f76015a97de8de2ff0815/%s",
+        "id": "cIc0f3xCRTsXHPSPlN84GfCrjFVr3G"
+      }
+    }
   },
   {
     "title": "Автофактор",
@@ -10847,7 +11752,16 @@
       "https://www.autofactor.ru/",
       "https://taplink.cc/motoshkola_avtofactor",
       "https://www.motoschool.autofactor.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13904936/2a00000194077a0b1ea8f9c154c7c672584e/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "13904936_2a00000194077a0b1ea8f9c154c7c672584e"
+      }
+    }
   },
   {
     "title": "Норд-Вест",
@@ -10940,7 +11854,16 @@
     ],
     "urls": [
       "https://avtoshkola-nordwest.ru/avtoshkola-nord-vest-v-otradnom"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5517178/2a0000017fda74ea134b722dcc266142f515/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "5517178_2a0000017fda74ea134b722dcc266142f515"
+      }
+    }
   },
   {
     "title": "Авто-Авис",
@@ -11054,7 +11977,16 @@
     ],
     "urls": [
       "http://autoavis.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16410678/2a0000019cfbdef45d888c2d130541b2466b/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019cfbdef45d888c2d130541b2466b"
+      }
+    }
   },
   {
     "title": "Формула Авто",
@@ -11159,7 +12091,16 @@
     ],
     "urls": [
       "http://www.form-auto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/3912953/2a00000176663a59c5c521375891a0f20c08/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "3912953_2a00000176663a59c5c521375891a0f20c08"
+      }
+    }
   },
   {
     "title": "АвтоСити",
@@ -11263,7 +12204,13 @@
     ],
     "urls": [
       "http://avtomsk77.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/4719974/2a00000179f0c032db0f9cc8f3f9efab80d6/%s",
+        "id": "6cYzhRmXJuS73Ep2N21Vx5GFGl15Ami"
+      }
+    }
   },
   {
     "title": "Мегаполис",
@@ -11366,7 +12313,16 @@
     ],
     "urls": [
       "https://avtoshkola-megapolis.ru/filialy/preobrazhenskaia-ploshchad/novosti/filial-avtoshkoly-na-tushinskoi"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/859900/2a0000015e614b7a1b4a54f82f33125d6182/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "5069323"
+      }
+    }
   },
   {
     "title": "Главная Дорога",
@@ -11488,7 +12444,16 @@
     ],
     "urls": [
       "https://avtoshkola-moskvy.ru/avtoshkoly-v-moskve/avtoshkola-zao-yugo-zapadnaya/?roistat=yandex.map_ugo-zapad"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14922087/2a0000019657bf7838450472a19000af27a9/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14922087_2a0000019657bf7838450472a19000af27a9"
+      }
+    }
   },
   {
     "title": "ТопГир",
@@ -11590,7 +12555,16 @@
     ],
     "urls": [
       "https://avtoshkola-tg.ru/?utm_campaign=avtoshkola-tg&utm_medium=msk&utm_source=ya"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/9737178/2a0000018adadda4d5e96e6c7d9d1df41c4a/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "9737178_2a0000018adadda4d5e96e6c7d9d1df41c4a"
+      }
+    }
   },
   {
     "title": "Автоотличник",
@@ -11682,7 +12656,16 @@
     ],
     "urls": [
       "https://www.avtootlichnik.ru/filialy/avtoshkola-v-perovo"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/4581272/2a00000177d42fd70ccdee70390da079f56e/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "4581272_2a00000177d42fd70ccdee70390da079f56e"
+      }
+    }
   },
   {
     "title": "Projectmoto",
@@ -11768,7 +12751,16 @@
     ],
     "urls": [
       "https://projectmoto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/17735792/2a0000019dd2cc6e37d81112163f43a00164/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019dd2cc6e37d81112163f43a00164"
+      }
+    }
   },
   {
     "title": "Рули",
@@ -11884,7 +12876,16 @@
     ],
     "urls": [
       "https://avtoruli.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/6444937/2a000001902f44bc1fa021eb24cfd0b44b8d/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001902f44bc1fa021eb24cfd0b44b8d"
+      }
+    }
   },
   {
     "title": "Вулкан-авто+",
@@ -11993,7 +12994,16 @@
     ],
     "urls": [
       "https://vulkan-avto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16749408/2a00000198b0fb34ea430438cabd6adb9dfd/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "16749408_2a00000198b0fb34ea430438cabd6adb9dfd"
+      }
+    }
   },
   {
     "title": "Чилли Мото",
@@ -12083,7 +13093,16 @@
     ],
     "urls": [
       "https://www.chillimoto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16557473/2a00000199f893273f9a534762f47283952f/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "16557473_2a00000199f893273f9a534762f47283952f"
+      }
+    }
   },
   {
     "title": "Парк МСК",
@@ -12175,7 +13194,16 @@
     ],
     "urls": [
       "https://www.parkmsk.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13941727/2a000001946a6fd6dae9adddd19ac354ad7c/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "13941727_2a000001946a6fd6dae9adddd19ac354ad7c"
+      }
+    }
   },
   {
     "title": "Формула успеха",
@@ -12238,7 +13266,16 @@
     ],
     "urls": [
       "https://formula-u.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14092818/2a000001937cf726368005428ad68348b0cc/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14092818_2a000001937cf726368005428ad68348b0cc"
+      }
+    }
   },
   {
     "title": "Ганг-Люкс",
@@ -12343,7 +13380,13 @@
     "urls": [
       "https://gang-lux.ru/",
       "https://gang-lux.ru/м-марьина-роща/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/4737312/2a0000017aa6c12c4afa81cb3359723de155/%s",
+        "id": "I0jJKOFKlQhdVGCcQtykJOYgxtZHpIl"
+      }
+    }
   },
   {
     "title": "Drivers",
@@ -12440,7 +13483,16 @@
     ],
     "urls": [
       "https://pro-drivers.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11383855/2a0000018be06ec0dd082efb4dec26ea019e/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018be06ec0dd082efb4dec26ea019e"
+      }
+    }
   },
   {
     "title": "Перекрёсток дорог",
@@ -12552,7 +13604,16 @@
     ],
     "urls": [
       "https://avtoshkola-perekrestokdorog.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11381866/2a0000018c5880034248bf02b90e67d97538/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "11381866_2a0000018c5880034248bf02b90e67d97538"
+      }
+    }
   },
   {
     "title": "Прокат Питбайков",
@@ -12614,7 +13675,13 @@
     ],
     "urls": [
       "http://prokat.pitbike.ru.tilda.ws/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/2701558/2a00000170c52bb6126f71ee1c2fc5378362/%s",
+        "id": "yhCN5ooo7ZGSGVmiT9nvFvqo-8L1vB"
+      }
+    }
   },
   {
     "title": "Вдоам",
@@ -12718,7 +13785,16 @@
     ],
     "urls": [
       "http://www.vdoam.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14329771/2a0000019730a266582e100273686c662bfb/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14329771_2a0000019730a266582e100273686c662bfb"
+      }
+    }
   },
   {
     "title": "Рули",
@@ -12828,7 +13904,16 @@
     ],
     "urls": [
       "https://avtoruli.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1371846/2a000001864fed772fe6b7342865ad7a40bd/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001864fed772fe6b7342865ad7a40bd"
+      }
+    }
   },
   {
     "title": "Аргос",
@@ -12940,7 +14025,16 @@
     ],
     "urls": [
       "https://argoc.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/2056672/2a0000016cbcec86f6b57cfea6e33e140bf9/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "2056672_2a0000016cbcec86f6b57cfea6e33e140bf9"
+      }
+    }
   },
   {
     "title": "Перекрёсток дорог",
@@ -13052,7 +14146,16 @@
     ],
     "urls": [
       "http://avtoshkola-perekrestokdorog.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11381866/2a0000018c5880034248bf02b90e67d97538/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "11381866_2a0000018c5880034248bf02b90e67d97538"
+      }
+    }
   },
   {
     "title": "Академия вождения Нс",
@@ -13156,7 +14259,16 @@
     ],
     "urls": [
       "https://avtoakadem.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16494614/2a0000019a5e6e1de005d0b2b6555e59109c/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019a5e6e1de005d0b2b6555e59109c"
+      }
+    }
   },
   {
     "title": "Мотоучёба",
@@ -13230,7 +14342,16 @@
     "socialLinks": null,
     "urls": [
       "https://motoucheba.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/4377463/2a00000181d2a6590c227b4848cc3f787063/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000181d2a6590c227b4848cc3f787063"
+      }
+    }
   },
   {
     "title": "Автошкола 177",
@@ -13339,7 +14460,16 @@
     ],
     "urls": [
       "https://177-avtoshkola.ru/avtoshkola_177_na_metro_nagatinskaya/?utm_source=yandex"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11047345/2a0000018dd0e301b44415b34a4c82965ae5/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "11047345_2a0000018dd0e301b44415b34a4c82965ae5"
+      }
+    }
   },
   {
     "title": "Автоотличник",
@@ -13441,7 +14571,16 @@
     ],
     "urls": [
       "https://www.avtootlichnik.ru/filialy/avtochkola-metro-aeroport"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/4581272/2a00000177d42fd70ccdee70390da079f56e/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "4581272_2a00000177d42fd70ccdee70390da079f56e"
+      }
+    }
   },
   {
     "title": "Форвард",
@@ -13554,7 +14693,16 @@
     "urls": [
       "https://prava4you.ru/?utm_campaign=yandex_maps&utm_source=yandex_kuz",
       "https://forward-drive.ru/?utm_campaign=yandex_maps&utm_source=yandex_kuz"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13925334/2a0000019203e47f6ff116ce04776129b002/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "13925334_2a0000019203e47f6ff116ce04776129b002"
+      }
+    }
   },
   {
     "title": "Drive",
@@ -13701,7 +14849,13 @@
     ],
     "urls": [
       "http://www.drive-msc.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/4304228/2a000001793abbd67321f9b92c27c19d8ab4/%s",
+        "id": "p9NxBx02aedFlLMDtknjIVZ2dCiEKwP1"
+      }
+    }
   },
   {
     "title": "Модерн",
@@ -13800,7 +14954,13 @@
     ],
     "urls": [
       "https://автошкола-модерн.рф/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5236391/2a0000017b721be8c14a309fa7af9c1f0f1d/%s",
+        "id": "Z3zPEe-bTKzTdmHskNiITNoxKy-O1f"
+      }
+    }
   },
   {
     "title": "Аргос",
@@ -13904,7 +15064,16 @@
     ],
     "urls": [
       "https://argoc.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/2056672/2a0000016cbcec86f6b57cfea6e33e140bf9/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "2056672_2a0000016cbcec86f6b57cfea6e33e140bf9"
+      }
+    }
   },
   {
     "title": "Ready2ride",
@@ -14000,7 +15169,16 @@
     ],
     "urls": [
       "http://ready2ride.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/4916794/2a00000181d75b9bd51e6ffcd6fedcc5c4fc/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000181d75b9bd51e6ffcd6fedcc5c4fc"
+      }
+    }
   },
   {
     "title": "Калита",
@@ -14057,7 +15235,16 @@
     ],
     "urls": [
       "https://nou-kalita.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/2355061/2a0000017504c2d8750c40fd85933aac4e95/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "2355061_2a0000017504c2d8750c40fd85933aac4e95"
+      }
+    }
   },
   {
     "title": "Форвард",
@@ -14155,7 +15342,16 @@
     "urls": [
       "https://prava4you.ru/?utm_campaign=yandex_maps&utm_source=yandex_avia",
       "https://forward-drive.ru/?utm_campaign=yandex_maps&utm_source=yandex_avia"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13925334/2a0000019203e47f6ff116ce04776129b002/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "13925334_2a0000019203e47f6ff116ce04776129b002"
+      }
+    }
   },
   {
     "title": "Автоэкстра",
@@ -14264,7 +15460,13 @@
     ],
     "urls": [
       "https://myavtoshkola.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5234013/2a00000181b91e08e3969b448e1a7e725685/%s",
+        "id": "ZGA8CCHhqLdRhQfsUbT2ZDWZH7sITx0C"
+      }
+    }
   },
   {
     "title": "Легион",
@@ -14363,7 +15565,16 @@
     "urls": [
       "http://avtoshkola-legion.ru/",
       "https://legionautoshkola.ru/avtoshkola-semenovskaya.php"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16823151/2a000001994d794a8decf5dab595c5101195/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "16823151_2a000001994d794a8decf5dab595c5101195"
+      }
+    }
   },
   {
     "title": "Фримен",
@@ -14437,7 +15648,16 @@
     "socialLinks": null,
     "urls": [
       "https://freemanmoto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/19699569/2a0000019caa4996c0befdb2fe851de92e12/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019caa4996c0befdb2fe851de92e12"
+      }
+    }
   },
   {
     "title": "Авто-Авис",
@@ -14529,7 +15749,13 @@
     ],
     "urls": [
       "http://js-avis.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/6302373/2a00000181012c99f5d0274d6a73e45ef0e3/%s",
+        "id": "iAGtUkVVWN1--3cJJJcPrlMut6DtfaA"
+      }
+    }
   },
   {
     "title": "На мото",
@@ -14609,7 +15835,16 @@
     ],
     "urls": [
       "http://na-moto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11371852/2a0000018ceaa5595f72124855fd827cf0ad/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "11371852_2a0000018ceaa5595f72124855fd827cf0ad"
+      }
+    }
   },
   {
     "title": "Наука",
@@ -14714,7 +15949,16 @@
     ],
     "urls": [
       "https://avtonauka.site/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11368589/2a0000018bedd302b460b5018897d9630de2/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018bedd302b460b5018897d9630de2"
+      }
+    }
   },
   {
     "title": "Пора за руль",
@@ -14806,7 +16050,16 @@
     ],
     "urls": [
       "https://autoshkola-porazarul.ru/?utm_campaign=autoshkola-porazarul&utm_medium=msk&utm_source=ya"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13930885/2a000001912b8f10ec1366d21d3fd66bb905/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001912b8f10ec1366d21d3fd66bb905"
+      }
+    }
   },
   {
     "title": "Союз",
@@ -14893,7 +16146,16 @@
     ],
     "urls": [
       "https://soyuz77.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10142335/2a0000018b0460e74ce91e2b46e9632c73c7/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "10142335_2a0000018b0460e74ce91e2b46e9632c73c7"
+      }
+    }
   },
   {
     "title": "Союз",
@@ -14981,7 +16243,16 @@
     "urls": [
       "https://soyuz77.ru/",
       "https://soyuz77.ru/contact-us"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10142335/2a0000018b0460e74ce91e2b46e9632c73c7/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "10142335_2a0000018b0460e74ce91e2b46e9632c73c7"
+      }
+    }
   },
   {
     "title": "Bikeyou",
@@ -15084,7 +16355,16 @@
     "urls": [
       "https://bikeyou.ru/",
       "https://kviz.bikeyou.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16330083/2a0000019a581b88f88e722e180f14f9f598/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019a581b88f88e722e180f14f9f598"
+      }
+    }
   },
   {
     "title": "Ready2ride",
@@ -15170,7 +16450,16 @@
     ],
     "urls": [
       "http://ready2ride.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13790728/2a00000192526d8c69c56767b9cc36bd490b/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000192526d8c69c56767b9cc36bd490b"
+      }
+    }
   },
   {
     "title": "Нео",
@@ -15280,7 +16569,16 @@
     ],
     "urls": [
       "http://avtoshkola-neo.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14392184/2a00000194bccc2bc80c5f95d15e417228fc/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14392184_2a00000194bccc2bc80c5f95d15e417228fc"
+      }
+    }
   },
   {
     "title": "Реал",
@@ -15383,7 +16681,16 @@
     ],
     "urls": [
       "https://real-avto.com/metro/avtoshkola-metro-borisovo/?utm_source=ym"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10175550/2a0000018bed28e3a1d927e0f9fb4774fe4a/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "10175550_2a0000018bed28e3a1d927e0f9fb4774fe4a"
+      }
+    }
   },
   {
     "title": "Авто Метод",
@@ -15485,7 +16792,16 @@
     ],
     "urls": [
       "https://лучшая-автошкола-мск.рф/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16341471/2a00000199cdec39a54afeb5d68fba6a9b28/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000199cdec39a54afeb5d68fba6a9b28"
+      }
+    }
   },
   {
     "title": "Центр Обучения Вождению",
@@ -15590,7 +16906,16 @@
     ],
     "urls": [
       "https://cov.su/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/19824988/2a0000019e079182d24d505859b805e945ff/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "19824988_2a0000019e079182d24d505859b805e945ff"
+      }
+    }
   },
   {
     "title": "Нео",
@@ -15703,7 +17028,16 @@
     ],
     "urls": [
       "https://avtoshkola-neo.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14392184/2a00000194bccc2bc80c5f95d15e417228fc/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14392184_2a00000194bccc2bc80c5f95d15e417228fc"
+      }
+    }
   },
   {
     "title": "МаксПрофи",
@@ -15815,7 +17149,16 @@
     ],
     "urls": [
       "https://avtoshkolaprofi.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16413163/2a0000019ba3d6c1f569ba35ec8f15757efd/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "16413163_2a0000019ba3d6c1f569ba35ec8f15757efd"
+      }
+    }
   },
   {
     "title": "Перспектива",
@@ -15912,7 +17255,16 @@
     ],
     "urls": [
       "https://avtoshkolaperspektiva.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/9709783/2a0000018a8aaac8b91f7186ae2c8fbfe121/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "9709783_2a0000018a8aaac8b91f7186ae2c8fbfe121"
+      }
+    }
   },
   {
     "title": "Original",
@@ -16004,7 +17356,16 @@
     ],
     "urls": [
       "https://moto-original.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5104371/2a00000182361495becbed948af372844b8c/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000182361495becbed948af372844b8c"
+      }
+    }
   },
   {
     "title": "Аспект",
@@ -16106,7 +17467,16 @@
     ],
     "urls": [
       "https://avtoshkola-aspekt.ru/?utm_campaign=Веб-сайт&utm_content=Матвеевское&utm_medium=Справочник&utm_source=Яндекс+Карты"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/20249436/2a0000019d244e84458c068c2b852e99be98/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "20249436_2a0000019d244e84458c068c2b852e99be98"
+      }
+    }
   },
   {
     "title": "Авто-Люкс",
@@ -16221,7 +17591,16 @@
     "urls": [
       "https://auto-moto-school.ru/",
       "https://auto-moto-school.ru/babushkinskaya"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/7723428/2a0000018341183f895c15c4a612732d7648/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018341183f895c15c4a612732d7648"
+      }
+    }
   },
   {
     "title": "АвТрон",
@@ -16345,7 +17724,16 @@
     ],
     "urls": [
       "https://av-tron.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5517598/2a0000017d246b5b7f5e2729e97848c693f3/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "5517598_2a0000017d246b5b7f5e2729e97848c693f3"
+      }
+    }
   },
   {
     "title": "Ганг Люкс",
@@ -16438,7 +17826,16 @@
     ],
     "urls": [
       "https://gang-lux.ru/filialyi/m-shipilovskaya"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10700956/2a0000018bb7b71d014956a61ea7b1497cb1/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018bb7b71d014956a61ea7b1497cb1"
+      }
+    }
   },
   {
     "title": "Реал",
@@ -16541,7 +17938,16 @@
     ],
     "urls": [
       "https://real-avto.com/metro/avtoshkola-metro-kolomenskaya/?utm_source=ym"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10175550/2a0000018bed28e3a1d927e0f9fb4774fe4a/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "10175550_2a0000018bed28e3a1d927e0f9fb4774fe4a"
+      }
+    }
   },
   {
     "title": "Высший Пилотаж",
@@ -16633,7 +18039,16 @@
     ],
     "urls": [
       "https://avtoshkola-skyauto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/18473509/2a0000019cbd210d4a71838f514e6842457e/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019cbd210d4a71838f514e6842457e"
+      }
+    }
   },
   {
     "title": "IronHorse",
@@ -16719,7 +18134,16 @@
     ],
     "urls": [
       "https://iron-horse-motoschool-moscow.clients.site/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/17700564/2a0000019d6966c04caed945f4bc91e3b3d4/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019d6966c04caed945f4bc91e3b3d4"
+      }
+    }
   },
   {
     "title": "Формула Сити",
@@ -16821,7 +18245,16 @@
     ],
     "urls": [
       "https://formulacity.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/7186075/2a000001884387925830520ab361ffd404bf/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001884387925830520ab361ffd404bf"
+      }
+    }
   },
   {
     "title": "Лайфстайл",
@@ -16864,7 +18297,16 @@
     ],
     "urls": [
       "http://lifestylemoto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10238647/2a000001907fc142a291e4a93d96674dd221/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001907fc142a291e4a93d96674dd221"
+      }
+    }
   },
   {
     "title": "Urs96",
@@ -16952,7 +18394,16 @@
     "urls": [
       "https://taplink.cc/unique_racingschool?ysclid=lxt4dvqyua352100595",
       "http://urs96.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16634215/2a00000198cbdd7c316568aaa3e8ba7a4956/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000198cbdd7c316568aaa3e8ba7a4956"
+      }
+    }
   },
   {
     "title": "Наука",
@@ -17056,7 +18507,16 @@
     ],
     "urls": [
       "https://avtonauka.site/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/4961567/2a00000190dab3e89722d6c0068f5d337016/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000190dab3e89722d6c0068f5d337016"
+      }
+    }
   },
   {
     "title": "МаксПрофи",
@@ -17160,7 +18620,16 @@
     ],
     "urls": [
       "https://avtoshkolaprofi.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16413163/2a0000019ba3d6c1f569ba35ec8f15757efd/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "16413163_2a0000019ba3d6c1f569ba35ec8f15757efd"
+      }
+    }
   },
   {
     "title": "Автостет",
@@ -17257,7 +18726,16 @@
     ],
     "urls": [
       "https://auto-stet.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/19693520/2a0000019df76c26e33b69f9cbcc144bdb88/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "19693520_2a0000019df76c26e33b69f9cbcc144bdb88"
+      }
+    }
   },
   {
     "title": "ТопГир",
@@ -17354,7 +18832,16 @@
     ],
     "urls": [
       "https://avtoshkola-tg.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/9737178/2a0000018adadda4d5e96e6c7d9d1df41c4a/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "9737178_2a0000018adadda4d5e96e6c7d9d1df41c4a"
+      }
+    }
   },
   {
     "title": "На мото",
@@ -17449,7 +18936,16 @@
     ],
     "urls": [
       "https://na-moto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/11371852/2a0000018ceaa5595f72124855fd827cf0ad/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "11371852_2a0000018ceaa5595f72124855fd827cf0ad"
+      }
+    }
   },
   {
     "title": "Ягуар",
@@ -17547,7 +19043,16 @@
     ],
     "urls": [
       "https://jaguar-avtoshkola.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/9728306/2a00000189e41feacda6cd30c0afb84d8c9d/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "9728306_2a00000189e41feacda6cd30c0afb84d8c9d"
+      }
+    }
   },
   {
     "title": "Курсант",
@@ -17647,7 +19152,16 @@
     ],
     "urls": [
       "https://kursant-avtoshkola.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13897576/2a000001933a261a8a860ec439fe59e10331/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001933a261a8a860ec439fe59e10331"
+      }
+    }
   },
   {
     "title": "Штурман",
@@ -17744,7 +19258,16 @@
     ],
     "urls": [
       "https://www.sturmanavto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/18396981/2a0000019ae513fadb6d917c471e1a585f86/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019ae513fadb6d917c471e1a585f86"
+      }
+    }
   },
   {
     "title": "Союз",
@@ -17831,7 +19354,16 @@
     ],
     "urls": [
       "https://soyuz77.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10142335/2a0000018b0460e74ce91e2b46e9632c73c7/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "10142335_2a0000018b0460e74ce91e2b46e9632c73c7"
+      }
+    }
   },
   {
     "title": "Союз",
@@ -17918,7 +19450,16 @@
     ],
     "urls": [
       "https://soyuz77.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10142335/2a0000018b0460e74ce91e2b46e9632c73c7/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "10142335_2a0000018b0460e74ce91e2b46e9632c73c7"
+      }
+    }
   },
   {
     "title": "Детская школа мотокросса СМ",
@@ -18022,7 +19563,16 @@
     ],
     "urls": [
       "https://motocrossmoscow.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14234746/2a00000192ebec7ad95b046d60680dc2204d/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000192ebec7ad95b046d60680dc2204d"
+      }
+    }
   },
   {
     "title": "АвТрон",
@@ -18144,7 +19694,16 @@
     ],
     "urls": [
       "http://www.av-tron.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5517598/2a0000017d246b5b7f5e2729e97848c693f3/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "5517598_2a0000017d246b5b7f5e2729e97848c693f3"
+      }
+    }
   },
   {
     "title": "Легион",
@@ -18242,7 +19801,16 @@
     ],
     "urls": [
       "https://avtoshkola-legion.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16823151/2a000001994d794a8decf5dab595c5101195/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "16823151_2a000001994d794a8decf5dab595c5101195"
+      }
+    }
   },
   {
     "title": "Эталон",
@@ -18350,7 +19918,16 @@
     ],
     "urls": [
       "https://avtoshkola-etalon.ru/aviamotornaya?utm_campaign=maps&utm_content=priority&utm_medium=cpc&utm_source=yandex&utm_term=button"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5255911/2a00000185a0802fe208f329ae394ed491e5/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "5255911_2a00000185a0802fe208f329ae394ed491e5"
+      }
+    }
   },
   {
     "title": "Формула успеха",
@@ -18392,7 +19969,16 @@
       }
     ],
     "socialLinks": null,
-    "urls": null
+    "urls": null,
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14092818/2a000001937cf726368005428ad68348b0cc/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14092818_2a000001937cf726368005428ad68348b0cc"
+      }
+    }
   },
   {
     "title": "NazarovMX",
@@ -18518,7 +20104,16 @@
     "urls": [
       "https://nazarovmx.ru/",
       "http://apollomoto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10175550/2a0000018a07ae0443c863bc4cd292c6cea8/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000018a07ae0443c863bc4cd292c6cea8"
+      }
+    }
   },
   {
     "title": "ТопГир",
@@ -18615,7 +20210,16 @@
     ],
     "urls": [
       "https://avtoshkola-tg.ru/?utm_campaign=avtoshkola-tg&utm_medium=msk&utm_source=ya"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/9737178/2a0000018adadda4d5e96e6c7d9d1df41c4a/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "9737178_2a0000018adadda4d5e96e6c7d9d1df41c4a"
+      }
+    }
   },
   {
     "title": "Автомобилист",
@@ -18705,7 +20309,16 @@
     ],
     "urls": [
       "https://автомобилист.рф/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/18116908/2a0000019cafae572006d0bc36dc50d43540/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "18116908_2a0000019cafae572006d0bc36dc50d43540"
+      }
+    }
   },
   {
     "title": "Автоформула",
@@ -18772,7 +20385,16 @@
     ],
     "urls": [
       "https://avtoformula-school.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14297579/2a00000194dc7030c1d101fdba856a867835/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14297579_2a00000194dc7030c1d101fdba856a867835"
+      }
+    }
   },
   {
     "title": "Мотошкола 77",
@@ -18851,7 +20473,16 @@
     "socialLinks": null,
     "urls": [
       "https://мотошкола77.рф/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16137047/2a0000019809ec18f318041e5a185f27e6a1/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019809ec18f318041e5a185f27e6a1"
+      }
+    }
   },
   {
     "title": "Реал",
@@ -18954,7 +20585,16 @@
     ],
     "urls": [
       "https://real-avto.com/metro/avtoshkola-metro-taganskaya/?utm_source=ym"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10175550/2a0000018bed28e3a1d927e0f9fb4774fe4a/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "10175550_2a0000018bed28e3a1d927e0f9fb4774fe4a"
+      }
+    }
   },
   {
     "title": "Мототом",
@@ -19047,7 +20687,16 @@
         "readableHref": "@mototom_club"
       }
     ],
-    "urls": null
+    "urls": null,
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16874376/2a000001998120032214bb3ce033e2c96813/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001998120032214bb3ce033e2c96813"
+      }
+    }
   },
   {
     "title": "Пеликан",
@@ -19152,7 +20801,16 @@
     ],
     "urls": [
       "http://pelicandrivingschool.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/15434007/2a0000019a8c5b6fac5f9bcc177bc179d518/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019a8c5b6fac5f9bcc177bc179d518"
+      }
+    }
   },
   {
     "title": "Про-экстрим",
@@ -19250,7 +20908,16 @@
     ],
     "urls": [
       "https://pro-extreme.club/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10661403/2a00000192435997c4a56825e02b684bb2cc/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000192435997c4a56825e02b684bb2cc"
+      }
+    }
   },
   {
     "title": "Зевс",
@@ -19352,7 +21019,16 @@
     ],
     "urls": [
       "https://avtoshkola-zevs.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/15344725/2a00000198fa82da7e4a2ef8a3919df568c0/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "15344725_2a00000198fa82da7e4a2ef8a3919df568c0"
+      }
+    }
   },
   {
     "title": "Форвард",
@@ -19449,7 +21125,16 @@
     ],
     "urls": [
       "https://beriprava.ru/?utm_campaign=yandex_maps&utm_medium=organic&utm_source=yandex"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/13925334/2a0000019203e47f6ff116ce04776129b002/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "13925334_2a0000019203e47f6ff116ce04776129b002"
+      }
+    }
   },
   {
     "title": "Селект",
@@ -19541,7 +21226,16 @@
     ],
     "urls": [
       "https://schoolselect.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14333651/2a000001950ef97bcb9c1815fb9cd9afbaa8/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14333651_2a000001950ef97bcb9c1815fb9cd9afbaa8"
+      }
+    }
   },
   {
     "title": "СтандартАвто Про",
@@ -19647,7 +21341,16 @@
     ],
     "urls": [
       "https://standartavto.pro/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/15032884/2a00000195fa3e91e10d123f7621f9cc676f/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "15032884_2a00000195fa3e91e10d123f7621f9cc676f"
+      }
+    }
   },
   {
     "title": "Реал",
@@ -19750,7 +21453,16 @@
     ],
     "urls": [
       "https://real-avto.com/metro/avtoshkola-metro-marino/?utm_source=ym"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10175550/2a0000018bed28e3a1d927e0f9fb4774fe4a/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "10175550_2a0000018bed28e3a1d927e0f9fb4774fe4a"
+      }
+    }
   },
   {
     "title": "Реал",
@@ -19853,7 +21565,16 @@
     ],
     "urls": [
       "https://real-avto.com/metro/avtoshkola-metro-yuzhnaya/?utm_source=ym"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10175550/2a0000018bed28e3a1d927e0f9fb4774fe4a/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "10175550_2a0000018bed28e3a1d927e0f9fb4774fe4a"
+      }
+    }
   },
   {
     "title": "Автошкола им. Давыдова",
@@ -19908,7 +21629,16 @@
     ],
     "urls": [
       "https://oz-avtoschool.ru/mytischi/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/9752112/2a00000188d45bc818284ef396b43c6991f2/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000188d45bc818284ef396b43c6991f2"
+      }
+    }
   },
   {
     "title": "Запад Авто",
@@ -20000,7 +21730,16 @@
     ],
     "urls": [
       "https://centrpodgotovki.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/15416005/2a000001985ad702361971f2eeea4bb172e8/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001985ad702361971f2eeea4bb172e8"
+      }
+    }
   },
   {
     "title": "StarkMoto",
@@ -20094,7 +21833,16 @@
     ],
     "urls": [
       "http://www.starkmoto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/18140291/2a0000019c6adc5cfec1f7d74e6b59a4a40d/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019c6adc5cfec1f7d74e6b59a4a40d"
+      }
+    }
   },
   {
     "title": "АвтоМотоЛевел",
@@ -20189,7 +21937,16 @@
         "readableHref": "@+79161777978"
       }
     ],
-    "urls": null
+    "urls": null,
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16105091/2a000001982c6e179c518c56a4088ab7cc03/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001982c6e179c518c56a4088ab7cc03"
+      }
+    }
   },
   {
     "title": "Автоправо",
@@ -20286,7 +22043,16 @@
     ],
     "urls": [
       "https://autoshkola-avtopravo.ru/?utm_campaign=autoshkola-avtopravo&utm_medium=msk&utm_source=ya"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16866637/2a00000199ce3dcdbefa5358906a2faea734/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000199ce3dcdbefa5358906a2faea734"
+      }
+    }
   },
   {
     "title": "ПроПрава",
@@ -20388,7 +22154,16 @@
     ],
     "urls": [
       "https://the-school.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/19089265/2a0000019ed2678e62ffa2787a06ed0919fc/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019ed2678e62ffa2787a06ed0919fc"
+      }
+    }
   },
   {
     "title": "Селект",
@@ -20480,7 +22255,16 @@
     ],
     "urls": [
       "https://schoolselect.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/14333651/2a000001950ef97bcb9c1815fb9cd9afbaa8/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "14333651_2a000001950ef97bcb9c1815fb9cd9afbaa8"
+      }
+    }
   },
   {
     "title": "Центр Подготовки Водителей Запад",
@@ -20574,7 +22358,16 @@
     ],
     "urls": [
       "https://centrpodgotovki.ru/avtoshkola-v-ochakovo"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/15043309/2a00000197b7fac057bfdb34907f7a545f0c/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a00000197b7fac057bfdb34907f7a545f0c"
+      }
+    }
   },
   {
     "title": "Автоюность",
@@ -20653,7 +22446,16 @@
       }
     ],
     "socialLinks": null,
-    "urls": null
+    "urls": null,
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/9895050/2a000001927ae9b7e8a6df1303b68d4bddbe/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001927ae9b7e8a6df1303b68d4bddbe"
+      }
+    }
   },
   {
     "title": "Автошкола Норд-Вест",
@@ -20746,7 +22548,16 @@
     ],
     "urls": [
       "https://avtoshkola-nordwest.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5517178/2a0000017fda74ea134b722dcc266142f515/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "5517178_2a0000017fda74ea134b722dcc266142f515"
+      }
+    }
   },
   {
     "title": "Московская школа вождения",
@@ -20833,7 +22644,16 @@
     ],
     "urls": [
       "https://moscowdriving.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/16416536/2a0000019b9d43c9ebe3333af07bb1aaf60a/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019b9d43c9ebe3333af07bb1aaf60a"
+      }
+    }
   },
   {
     "title": "Филин",
@@ -20931,7 +22751,13 @@
     "socialLinks": null,
     "urls": [
       "https://www.avtofilin.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/5457654/2a0000017e9593177c7ccbeb0bb0e6226fa0/%s",
+        "id": "LLlZ4vIzYaNXPhHGbsLhwA3A6hz-IA"
+      }
+    }
   },
   {
     "title": "TimeToMoto",
@@ -21001,7 +22827,16 @@
     ],
     "urls": [
       "http://timetomoto.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/18105464/2a0000019dc32b03e59b808996539435e2e1/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a0000019dc32b03e59b808996539435e2e1"
+      }
+    }
   },
   {
     "title": "Центр образования Автошкол столицы",
@@ -21098,7 +22933,16 @@
     ],
     "urls": [
       "http://coasdriving.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/1420183/2a00000166b0c72689aee7baa554861f160f/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "107807799"
+      }
+    }
   },
   {
     "title": "Реал",
@@ -21196,7 +23040,16 @@
     ],
     "urls": [
       "https://real-avto.com/metro/avtoshkola-metro-avtozavodskaya/?utm_source=ym"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/10175550/2a0000018bed28e3a1d927e0f9fb4774fe4a/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "10175550_2a0000018bed28e3a1d927e0f9fb4774fe4a"
+      }
+    }
   },
   {
     "title": "Перспектива",
@@ -21298,7 +23151,16 @@
     ],
     "urls": [
       "https://avtoshkolaperspektiva.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/9709783/2a0000018a8aaac8b91f7186ae2c8fbfe121/%s",
+        "tag": [
+          "chain-logo"
+        ],
+        "id": "9709783_2a0000018a8aaac8b91f7186ae2c8fbfe121"
+      }
+    }
   },
   {
     "title": "Мотостади",
@@ -21400,6 +23262,15 @@
     ],
     "urls": [
       "http://www.motostudy.ru/"
-    ]
+    ],
+    "businessImages": {
+      "logo": {
+        "urlTemplate": "https://avatars.mds.yandex.net/get-altay/7740052/2a000001842e8e6ff978cbe4c8f6231dd959/%s",
+        "tag": [
+          "owner_photo"
+        ],
+        "id": "2a000001842e8e6ff978cbe4c8f6231dd959"
+      }
+    }
   }
 ]

@@ -32,6 +32,7 @@ class MotorcycleSchool(Base):
     address: Mapped[str | None] = mapped_column(Text)
     additional_address: Mapped[str | None] = mapped_column(Text)
     seoname: Mapped[str | None] = mapped_column(Text)
+    avatar_url: Mapped[str | None] = mapped_column(Text)
 
     longitude: Mapped[float | None] = mapped_column(Float)
     latitude: Mapped[float | None] = mapped_column(Float)
@@ -86,6 +87,7 @@ class MotorcycleSchool(Base):
             address=row.get("address"),
             additional_address=row.get("additionalAddress"),
             seoname=row.get("seoname"),
+            avatar_url=build_avatar_url(row.get("businessImages")),
             longitude=_coordinate(coordinates, 0),
             latitude=_coordinate(coordinates, 1),
             rating_count=rating_data.get("ratingCount"),
@@ -317,3 +319,11 @@ def _coordinate(coordinates: list[Any], index: int) -> float | None:
     if len(coordinates) <= index:
         return None
     return coordinates[index]
+
+
+def build_avatar_url(business_images: dict[str, Any] | None) -> str | None:
+    logo = (business_images or {}).get("logo") or {}
+    url_template = logo.get("urlTemplate")
+    if not url_template:
+        return None
+    return url_template.replace("%s", "S_height")
