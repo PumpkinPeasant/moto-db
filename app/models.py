@@ -4,6 +4,7 @@ from datetime import datetime
 from typing import Any
 
 from sqlalchemy import (
+    Boolean,
     DateTime,
     Float,
     ForeignKey,
@@ -150,6 +151,44 @@ class SchoolCategory(Base):
     category: Mapped[Category] = relationship(back_populates="schools")
 
 
+class MetroLine(Base):
+    __tablename__ = "metro_lines"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    name: Mapped[str] = mapped_column(Text, nullable=False, unique=True)
+    number: Mapped[str] = mapped_column(String(8), nullable=False, unique=True)
+    color: Mapped[str | None] = mapped_column(String(16))
+
+    stations: Mapped[list[MetroStation]] = relationship(back_populates="line")
+
+
+class AdministrativeArea(Base):
+    __tablename__ = "administrative_areas"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    name: Mapped[str] = mapped_column(Text, nullable=False, unique=True)
+
+    districts: Mapped[list[District]] = relationship(back_populates="adm_area")
+
+
+class District(Base):
+    __tablename__ = "districts"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    name: Mapped[str] = mapped_column(Text, nullable=False)
+    adm_area_id: Mapped[int] = mapped_column(
+        ForeignKey("administrative_areas.id"), nullable=False
+    )
+
+    adm_area: Mapped[AdministrativeArea] = relationship(back_populates="districts")
+    metro_stations: Mapped[list[MetroStation]] = relationship(back_populates="district")
+
+    __table_args__ = (
+        UniqueConstraint("name", "adm_area_id", name="uq_districts_name_adm_area"),
+        Index("ix_districts_name", "name"),
+    )
+
+
 class MetroStation(Base):
     __tablename__ = "metro_stations"
 
@@ -157,15 +196,24 @@ class MetroStation(Base):
     yandex_id: Mapped[str] = mapped_column(String(64), unique=True, nullable=False)
     name: Mapped[str] = mapped_column(Text, nullable=False)
     type: Mapped[str | None] = mapped_column(String(64))
-    color: Mapped[str | None] = mapped_column(String(16))
     longitude: Mapped[float | None] = mapped_column(Float)
     latitude: Mapped[float | None] = mapped_column(Float)
 
+    line_id: Mapped[int | None] = mapped_column(ForeignKey("metro_lines.id"))
+    district_id: Mapped[int | None] = mapped_column(ForeignKey("districts.id"))
+    is_active: Mapped[bool] = mapped_column(
+        Boolean, nullable=False, server_default="0", default=False
+    )
+
+    line: Mapped[MetroLine | None] = relationship(back_populates="stations")
+    district: Mapped[District | None] = relationship(back_populates="metro_stations")
     schools: Mapped[list[SchoolMetroStation]] = relationship(back_populates="station")
 
     __table_args__ = (
         Index("ix_metro_stations_name", "name"),
         Index("ix_metro_stations_geo", "longitude", "latitude"),
+        Index("ix_metro_stations_line_id", "line_id"),
+        Index("ix_metro_stations_district_id", "district_id"),
     )
 
     @classmethod
@@ -175,7 +223,6 @@ class MetroStation(Base):
             yandex_id=str(metro["id"]),
             name=metro["name"],
             type=metro.get("type"),
-            color=metro.get("color"),
             longitude=_coordinate(coordinates, 0),
             latitude=_coordinate(coordinates, 1),
         )

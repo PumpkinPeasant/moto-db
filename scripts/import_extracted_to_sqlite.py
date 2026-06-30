@@ -1,3 +1,14 @@
+"""Шаг 3 пайплайна сборки БД.
+
+Читает плоский JSON из extracted/motorcycle_schools.json (выход
+extract_fields.py) и заливает данные в SQLite через SQLAlchemy:
+создаёт школы, привязывает к ним категории, метро, телефоны, соц.сети,
+сайты. Идемпотентен: повторный запуск пропускает школы с уже
+существующим yandex_id. --reset удаляет файл БД перед заливкой.
+
+Запуск:
+    python -m scripts.import_extracted_to_sqlite [--reset]
+"""
 import argparse
 import json
 import sys
@@ -8,7 +19,7 @@ from sqlalchemy.orm import Session
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from models import (
+from app.models import (  # noqa: E402
     Base,
     Category,
     MetroStation,

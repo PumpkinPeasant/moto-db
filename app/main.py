@@ -7,8 +7,11 @@ from fastapi import Depends, FastAPI, HTTPException, Query
 from sqlalchemy import create_engine, func, or_, select
 from sqlalchemy.orm import Session, selectinload, sessionmaker
 
-from models import (
+from app.models import (
+    AdministrativeArea,
     Category,
+    District,
+    MetroLine,
     MetroStation,
     MotorcycleSchool,
     SchoolCategory,
@@ -18,8 +21,8 @@ from models import (
 )
 
 
-BASE_DIR = Path(__file__).resolve().parent
-DB_PATH = BASE_DIR / "moto.sqlite"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DB_PATH = PROJECT_ROOT / "moto.sqlite"
 DATABASE_URL = f"sqlite:///{DB_PATH}"
 
 engine = create_engine(
@@ -66,22 +69,51 @@ def autocomplete_metro(
     q: str | None = Query(default=None, min_length=1),
     limit: int = Query(default=20, ge=1, le=100),
 ) -> list[dict]:
-    stmt = select(MetroStation).order_by(MetroStation.name).limit(limit)
+    stmt = (
+        select(MetroStation)
+        .options(
+            selectinload(MetroStation.line),
+            selectinload(MetroStation.district).selectinload(District.adm_area),
+        )
+        .order_by(MetroStation.name)
+        .limit(limit)
+    )
     if q:
         stmt = stmt.where(MetroStation.name.ilike(f"%{q}%"))
 
-    return [
-        {
-            "id": station.id,
-            "yandex_id": station.yandex_id,
-            "name": station.name,
-            "type": station.type,
-            "color": station.color,
-            "longitude": station.longitude,
-            "latitude": station.latitude,
+    return [serialize_metro_station(station) for station in session.scalars(stmt)]
+
+
+def serialize_metro_station(station: MetroStation) -> dict:
+    line = station.line
+    district = station.district
+    return {
+        "id": station.id,
+        "yandex_id": station.yandex_id,
+        "name": station.name,
+        "type": station.type,
+        "longitude": station.longitude,
+        "latitude": station.latitude,
+        "is_active": station.is_active,
+        "line": {
+            "id": line.id,
+            "name": line.name,
+            "number": line.number,
+            "color": line.color,
         }
-        for station in session.scalars(stmt).all()
-    ]
+        if line is not None
+        else None,
+        "district": {
+            "id": district.id,
+            "name": district.name,
+            "adm_area": {
+                "id": district.adm_area.id,
+                "name": district.adm_area.name,
+            },
+        }
+        if district is not None
+        else None,
+    }
 
 
 @app.get("/autocomplete/categories")
@@ -206,19 +238,7 @@ def list_schools(
     offset = (page - 1) * per_page
     order_by = build_school_order_by(sort_by, sort_order, metro_station_id)
     schools = session.scalars(
-        base_stmt.options(
-            selectinload(MotorcycleSchool.categories).selectinload(
-                SchoolCategory.category
-            ),
-            selectinload(MotorcycleSchool.metro_stations).selectinload(
-                SchoolMetroStation.station
-            ),
-            selectinload(MotorcycleSchool.phones),
-            selectinload(MotorcycleSchool.social_links).selectinload(
-                SchoolSocialLink.type
-            ),
-            selectinload(MotorcycleSchool.urls),
-        )
+        base_stmt.options(*school_load_options())
         .order_by(*order_by)
         .offset(offset)
         .limit(per_page)
@@ -239,24 +259,28 @@ def get_school(school_id: int, session: SessionDep) -> dict:
     school = session.scalar(
         select(MotorcycleSchool)
         .where(MotorcycleSchool.id == school_id)
-        .options(
-            selectinload(MotorcycleSchool.categories).selectinload(
-                SchoolCategory.category
-            ),
-            selectinload(MotorcycleSchool.metro_stations).selectinload(
-                SchoolMetroStation.station
-            ),
-            selectinload(MotorcycleSchool.phones),
-            selectinload(MotorcycleSchool.social_links).selectinload(
-                SchoolSocialLink.type
-            ),
-            selectinload(MotorcycleSchool.urls),
-        )
+        .options(*school_load_options())
     )
     if school is None:
         raise HTTPException(status_code=404, detail="School not found")
 
     return serialize_school(school)
+
+
+def school_load_options() -> list:
+    metro_station = selectinload(MotorcycleSchool.metro_stations).selectinload(
+        SchoolMetroStation.station
+    )
+    return [
+        selectinload(MotorcycleSchool.categories).selectinload(SchoolCategory.category),
+        metro_station.selectinload(MetroStation.line),
+        metro_station.selectinload(MetroStation.district).selectinload(
+            District.adm_area
+        ),
+        selectinload(MotorcycleSchool.phones),
+        selectinload(MotorcycleSchool.social_links).selectinload(SchoolSocialLink.type),
+        selectinload(MotorcycleSchool.urls),
+    ]
 
 
 def serialize_school(school: MotorcycleSchool) -> dict:
@@ -287,14 +311,7 @@ def serialize_school(school: MotorcycleSchool) -> dict:
             for link in school.categories
         ],
         "metro": [
-            {
-                "id": link.station.id,
-                "yandex_id": link.station.yandex_id,
-                "name": link.station.name,
-                "distance": link.distance,
-                "distance_value": link.distance_value,
-                "color": link.station.color,
-            }
+            serialize_school_metro_link(link)
             for link in sorted(school.metro_stations, key=lambda item: item.position)
         ],
         "phones": [
@@ -318,6 +335,38 @@ def serialize_school(school: MotorcycleSchool) -> dict:
         "urls": [
             url.url for url in sorted(school.urls, key=lambda item: item.position)
         ],
+    }
+
+
+def serialize_school_metro_link(link: SchoolMetroStation) -> dict:
+    station = link.station
+    line = station.line
+    district = station.district
+    return {
+        "id": station.id,
+        "yandex_id": station.yandex_id,
+        "name": station.name,
+        "distance": link.distance,
+        "distance_value": link.distance_value,
+        "is_active": station.is_active,
+        "line": {
+            "id": line.id,
+            "name": line.name,
+            "number": line.number,
+            "color": line.color,
+        }
+        if line is not None
+        else None,
+        "district": {
+            "id": district.id,
+            "name": district.name,
+            "adm_area": {
+                "id": district.adm_area.id,
+                "name": district.adm_area.name,
+            },
+        }
+        if district is not None
+        else None,
     }
 
 

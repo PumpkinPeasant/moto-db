@@ -1,3 +1,14 @@
+"""Шаг 2 пайплайна сборки БД.
+
+Парсит responses/response_skip_*.json (выход get.py), вытаскивает по
+каждой организации только нужные поля (title, address, coordinates,
+metro, categories, phones, socialLinks и т.д.), убирает дубли по id и
+пишет результат в extracted/motorcycle_schools.{json,csv}. Дальше
+этим JSON-ом кормится import_extracted_to_sqlite.py.
+
+Запуск:
+    python scripts/extract_fields.py
+"""
 import csv
 import json
 import re
