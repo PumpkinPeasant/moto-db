@@ -67,25 +67,72 @@ def health(session: SessionDep) -> dict:
 def autocomplete_metro(
     session: SessionDep,
     q: str | None = Query(default=None, min_length=1),
-    limit: int = Query(default=20, ge=1, le=100),
-) -> list[dict]:
-    stmt = (
-        select(MetroStation)
-        .options(
+    page: int = Query(default=1, ge=1),
+    per_page: int = Query(default=50, ge=1, le=200),
+) -> dict:
+    base_stmt = select(MetroStation).outerjoin(MetroStation.line)
+    if q:
+        base_stmt = base_stmt.where(MetroStation.name.ilike(f"%{q}%"))
+
+    total = session.scalar(select(func.count()).select_from(base_stmt.subquery()))
+    total = total or 0
+
+    offset = (page - 1) * per_page
+    stations = session.scalars(
+        base_stmt.options(
             selectinload(MetroStation.line),
             selectinload(MetroStation.district).selectinload(District.adm_area),
         )
-        .order_by(MetroStation.name)
-        .limit(limit)
-    )
-    if q:
-        stmt = stmt.where(MetroStation.name.ilike(f"%{q}%"))
+        .order_by(
+            MetroLine.id.asc().nullslast(),
+            MetroStation.name.asc(),
+            MetroStation.id.asc(),
+        )
+        .offset(offset)
+        .limit(per_page)
+    ).all()
 
-    return [serialize_metro_station(station) for station in session.scalars(stmt)]
+    return {
+        "page": page,
+        "per_page": per_page,
+        "total": total,
+        "pages": (total + per_page - 1) // per_page,
+        "has_next": offset + len(stations) < total,
+        "items": group_stations_by_line(stations),
+    }
 
 
-def serialize_metro_station(station: MetroStation) -> dict:
-    line = station.line
+def group_stations_by_line(stations: list[MetroStation]) -> list[dict]:
+    groups: list[dict] = []
+    current_line_id: int | None | object = object()
+    current_group: dict | None = None
+    for station in stations:
+        line = station.line
+        line_id = line.id if line is not None else None
+        if line_id != current_line_id:
+            current_group = {
+                "line": serialize_metro_line(line),
+                "stations": [],
+            }
+            groups.append(current_group)
+            current_line_id = line_id
+        assert current_group is not None
+        current_group["stations"].append(serialize_metro_station_in_group(station))
+    return groups
+
+
+def serialize_metro_line(line: MetroLine | None) -> dict | None:
+    if line is None:
+        return None
+    return {
+        "id": line.id,
+        "name": line.name,
+        "number": line.number,
+        "color": line.color,
+    }
+
+
+def serialize_metro_station_in_group(station: MetroStation) -> dict:
     district = station.district
     return {
         "id": station.id,
@@ -95,14 +142,6 @@ def serialize_metro_station(station: MetroStation) -> dict:
         "longitude": station.longitude,
         "latitude": station.latitude,
         "is_active": station.is_active,
-        "line": {
-            "id": line.id,
-            "name": line.name,
-            "number": line.number,
-            "color": line.color,
-        }
-        if line is not None
-        else None,
         "district": {
             "id": district.id,
             "name": district.name,
