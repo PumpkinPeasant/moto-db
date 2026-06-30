@@ -1,9 +1,12 @@
 from __future__ import annotations
 
+import re
 from pathlib import Path
 from typing import Annotated
 
+import cyrtranslit
 from fastapi import Depends, FastAPI, HTTPException, Query
+from rapidfuzz import fuzz
 from sqlalchemy import create_engine, func, or_, select
 from sqlalchemy.orm import Session, selectinload, sessionmaker
 
@@ -56,6 +59,12 @@ SCHOOL_SORT_FIELDS = {
 }
 SCHOOL_SORT_FIELD_NAMES = (*SCHOOL_SORT_FIELDS.keys(), "metro_distance")
 SORT_ORDERS = ("asc", "desc")
+TITLE_SEARCH_MIN_SCORE = 0.72
+
+EN_KEYBOARD = "`qwertyuiop[]asdfghjkl;'zxcvbnm,."
+RU_KEYBOARD = "ёйцукенгшщзхъфывапролджэячсмитьбю"
+EN_TO_RU_KEYBOARD = str.maketrans(EN_KEYBOARD, RU_KEYBOARD)
+RU_TO_EN_KEYBOARD = str.maketrans(RU_KEYBOARD, EN_KEYBOARD)
 
 
 @app.get("/health")
@@ -205,15 +214,23 @@ def autocomplete_schools(
     q: str = Query(min_length=1),
     limit: int = Query(default=20, ge=1, le=100),
 ) -> list[dict]:
-    stmt = (
-        select(MotorcycleSchool)
-        .where(MotorcycleSchool.title.ilike(f"%{q}%"))
-        .order_by(
-            MotorcycleSchool.rating_value.desc().nullslast(),
-            MotorcycleSchool.title,
+    schools = session.scalars(select(MotorcycleSchool)).all()
+    matched_schools = [
+        school
+        for school, _score in sorted(
+            (
+                (school, score_school_title_match(q, school))
+                for school in schools
+            ),
+            key=lambda item: (
+                -item[1],
+                -(item[0].rating_value or 0),
+                item[0].title.casefold(),
+                item[0].id,
+            ),
         )
-        .limit(limit)
-    )
+        if _score >= title_search_min_score(q)
+    ][:limit]
 
     return [
         {
@@ -224,7 +241,7 @@ def autocomplete_schools(
             "avatar_url": school.avatar_url,
             "rating_value": school.rating_value,
         }
-        for school in session.scalars(stmt).all()
+        for school in matched_schools
     ]
 
 
@@ -242,9 +259,6 @@ def list_schools(
     sort_order: str = Query(default="desc", enum=SORT_ORDERS),
 ) -> dict:
     filters = []
-
-    if search:
-        filters.append(MotorcycleSchool.title.ilike(f"%{search}%"))
 
     if category_id:
         filters.append(
@@ -270,19 +284,23 @@ def list_schools(
     if min_rating is not None:
         filters.append(MotorcycleSchool.rating_value >= min_rating)
 
-    base_stmt = select(MotorcycleSchool).where(*filters)
-    total = session.scalar(
-        select(func.count()).select_from(base_stmt.subquery())
-    )
-
     offset = (page - 1) * per_page
     order_by = build_school_order_by(sort_by, sort_order, metro_station_id)
-    schools = session.scalars(
-        base_stmt.options(*school_load_options())
-        .order_by(*order_by)
-        .offset(offset)
-        .limit(per_page)
-    ).all()
+    base_stmt = select(MotorcycleSchool).where(*filters)
+
+    if search:
+        schools = session.scalars(base_stmt.options(*school_load_options())).all()
+        matched_schools = filter_schools_by_title_search(search, schools)
+        total = len(matched_schools)
+        schools_page = matched_schools[offset : offset + per_page]
+    else:
+        total = session.scalar(select(func.count()).select_from(base_stmt.subquery()))
+        schools_page = session.scalars(
+            base_stmt.options(*school_load_options())
+            .order_by(*order_by)
+            .offset(offset)
+            .limit(per_page)
+        ).all()
 
     return {
         "page": page,
@@ -290,8 +308,103 @@ def list_schools(
         "total": total,
         "sort_by": sort_by,
         "sort_order": sort_order,
-        "items": [serialize_school(school) for school in schools],
+        "items": [serialize_school(school) for school in schools_page],
     }
+
+
+def filter_schools_by_title_search(
+    query: str,
+    schools: list[MotorcycleSchool],
+) -> list[MotorcycleSchool]:
+    min_score = title_search_min_score(query)
+    scored_schools = [
+        (school, score)
+        for school in schools
+        if (score := score_school_title_match(query, school)) >= min_score
+    ]
+    return [
+        school
+        for school, _score in sorted(
+            scored_schools,
+            key=lambda item: (
+                -item[1],
+                -(item[0].rating_value or 0),
+                -(item[0].review_count or 0),
+                item[0].title.casefold(),
+                item[0].id,
+            ),
+        )
+    ]
+
+
+def score_school_title_match(query: str, school: MotorcycleSchool) -> float:
+    query_variants = build_search_variants(query)
+    if not query_variants:
+        return 0
+
+    haystack_variants = build_search_variants(school.title)
+    if school.seoname:
+        haystack_variants.update(build_search_variants(school.seoname))
+
+    best_score = 0.0
+    for query_variant in query_variants:
+        for haystack_variant in haystack_variants:
+            if not query_variant or not haystack_variant:
+                continue
+            best_score = max(
+                best_score,
+                score_search_variant_match(query_variant, haystack_variant),
+            )
+            if best_score >= 1:
+                return best_score
+    return best_score
+
+
+def score_search_variant_match(query: str, haystack: str) -> float:
+    if query == haystack:
+        return 1
+    if query in haystack:
+        return 0.95 if haystack.startswith(query) else 0.9
+    if len(query) >= 5 and haystack in query:
+        return 0.86
+    score = fuzz.ratio(query, haystack) / 100
+    if query[0] != haystack[0]:
+        score *= 0.8
+    return score
+
+
+def title_search_min_score(query: str) -> float:
+    query_length = min((len(item) for item in build_search_variants(query)), default=0)
+    if query_length <= 3:
+        return 0.9
+    if query_length <= 5:
+        return 0.8
+    return TITLE_SEARCH_MIN_SCORE
+
+
+def build_search_variants(value: str | None) -> set[str]:
+    if not value:
+        return set()
+
+    base_values = {
+        value,
+        value.translate(EN_TO_RU_KEYBOARD),
+        value.translate(RU_TO_EN_KEYBOARD),
+    }
+    variants: set[str] = set()
+    for base_value in base_values:
+        normalized = normalize_search_text(base_value)
+        if not normalized:
+            continue
+        variants.add(normalized)
+        variants.add(cyrtranslit.to_latin(normalized, "ru"))
+        variants.add(cyrtranslit.to_cyrillic(normalized, "ru"))
+    return {variant for variant in variants if variant}
+
+
+def normalize_search_text(value: str) -> str:
+    normalized = value.casefold().replace("ё", "е")
+    return re.sub(r"[^0-9a-zа-я]+", "", normalized)
 
 
 @app.get("/schools/{school_id}")
