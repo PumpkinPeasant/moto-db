@@ -41,6 +41,18 @@ def get_session() -> Session:
 
 SessionDep = Annotated[Session, Depends(get_session)]
 
+SCHOOL_SORT_FIELDS = {
+    "title": MotorcycleSchool.title,
+    "address": MotorcycleSchool.address,
+    "rating_value": MotorcycleSchool.rating_value,
+    "rating_count": MotorcycleSchool.rating_count,
+    "review_count": MotorcycleSchool.review_count,
+    "created_at": MotorcycleSchool.created_at,
+    "updated_at": MotorcycleSchool.updated_at,
+}
+SCHOOL_SORT_FIELD_NAMES = (*SCHOOL_SORT_FIELDS.keys(), "metro_distance")
+SORT_ORDERS = ("asc", "desc")
+
 
 @app.get("/health")
 def health(session: SessionDep) -> dict:
@@ -154,6 +166,8 @@ def list_schools(
     min_rating: float | None = Query(default=None, ge=0, le=5),
     page: int = Query(default=1, ge=1),
     per_page: int = Query(default=20, ge=1, le=100),
+    sort_by: str = Query(default="rating_value", enum=SCHOOL_SORT_FIELD_NAMES),
+    sort_order: str = Query(default="desc", enum=SORT_ORDERS),
 ) -> dict:
     filters = []
 
@@ -190,6 +204,7 @@ def list_schools(
     )
 
     offset = (page - 1) * per_page
+    order_by = build_school_order_by(sort_by, sort_order, metro_station_id)
     schools = session.scalars(
         base_stmt.options(
             selectinload(MotorcycleSchool.categories).selectinload(
@@ -204,11 +219,7 @@ def list_schools(
             ),
             selectinload(MotorcycleSchool.urls),
         )
-        .order_by(
-            MotorcycleSchool.rating_value.desc().nullslast(),
-            MotorcycleSchool.review_count.desc().nullslast(),
-            MotorcycleSchool.title,
-        )
+        .order_by(*order_by)
         .offset(offset)
         .limit(per_page)
     ).all()
@@ -217,6 +228,8 @@ def list_schools(
         "page": page,
         "per_page": per_page,
         "total": total,
+        "sort_by": sort_by,
+        "sort_order": sort_order,
         "items": [serialize_school(school) for school in schools],
     }
 
@@ -306,3 +319,41 @@ def serialize_school(school: MotorcycleSchool) -> dict:
             url.url for url in sorted(school.urls, key=lambda item: item.position)
         ],
     }
+
+
+def build_school_order_by(
+    sort_by: str,
+    sort_order: str,
+    metro_station_ids: list[int] | None,
+) -> list:
+    sort_expression = get_school_sort_expression(sort_by, metro_station_ids)
+    primary_sort = (
+        sort_expression.asc().nullslast()
+        if sort_order == "asc"
+        else sort_expression.desc().nullslast()
+    )
+
+    return [
+        primary_sort,
+        MotorcycleSchool.review_count.desc().nullslast(),
+        MotorcycleSchool.title.asc(),
+        MotorcycleSchool.id.asc(),
+    ]
+
+
+def get_school_sort_expression(
+    sort_by: str,
+    metro_station_ids: list[int] | None,
+):
+    if sort_by != "metro_distance":
+        return SCHOOL_SORT_FIELDS[sort_by]
+
+    distance_stmt = select(func.min(SchoolMetroStation.distance_value)).where(
+        SchoolMetroStation.school_id == MotorcycleSchool.id
+    )
+    if metro_station_ids:
+        distance_stmt = distance_stmt.where(
+            SchoolMetroStation.station_id.in_(metro_station_ids)
+        )
+
+    return distance_stmt.scalar_subquery()
