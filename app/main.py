@@ -239,7 +239,7 @@ def autocomplete_schools(
             "title": school.title,
             "address": school.address,
             "avatar_url": school.avatar_url,
-            "rating_value": school.rating_value,
+            "rating_value": round_float(school.rating_value, 2),
         }
         for school in matched_schools
     ]
@@ -291,8 +291,11 @@ def list_schools(
     if search:
         schools = session.scalars(base_stmt.options(*school_load_options())).all()
         matched_schools = filter_schools_by_title_search(search, schools)
+        sorted_schools = sort_schools_in_memory(
+            matched_schools, sort_by, sort_order, metro_station_id
+        )
         total = len(matched_schools)
-        schools_page = matched_schools[offset : offset + per_page]
+        schools_page = sorted_schools[offset : offset + per_page]
     else:
         total = session.scalar(select(func.count()).select_from(base_stmt.subquery()))
         schools_page = session.scalars(
@@ -335,6 +338,55 @@ def filter_schools_by_title_search(
             ),
         )
     ]
+
+
+def sort_schools_in_memory(
+    schools: list[MotorcycleSchool],
+    sort_by: str,
+    sort_order: str,
+    metro_station_ids: list[int] | None,
+) -> list[MotorcycleSchool]:
+    reverse = sort_order == "desc"
+
+    return sorted(
+        schools,
+        key=lambda school: (
+            school_sort_null_rank(
+                get_school_sort_value(school, sort_by, metro_station_ids)
+            ),
+            school_sort_value(
+                get_school_sort_value(school, sort_by, metro_station_ids),
+                reverse,
+            ),
+            -(school.review_count or 0),
+            school.title.casefold(),
+            school.id,
+        ),
+    )
+
+
+def school_sort_null_rank(value) -> int:
+    return 1 if value is None else 0
+
+
+def school_sort_value(value, reverse: bool):
+    if isinstance(value, str):
+        value = value.casefold()
+        return "".join(chr(0x10FFFF - ord(char)) for char in value) if reverse else value
+    if value is None:
+        return None
+    comparable_value = value.timestamp() if hasattr(value, "timestamp") else value
+    return -comparable_value if reverse else comparable_value
+
+
+def get_school_sort_value(
+    school: MotorcycleSchool,
+    sort_by: str,
+    metro_station_ids: list[int] | None,
+):
+    if sort_by == "metro_distance":
+        return get_school_nearest_metro_distance(school, metro_station_ids)
+    return getattr(school, sort_by)
 
 
 def score_school_title_match(query: str, school: MotorcycleSchool) -> float:
@@ -439,6 +491,7 @@ def school_load_options() -> list:
 
 
 def serialize_school(school: MotorcycleSchool) -> dict:
+    nearest_metro_link = get_nearest_school_metro_link(school.metro_stations)
     return {
         "id": school.id,
         "yandex_id": school.yandex_id,
@@ -455,7 +508,7 @@ def serialize_school(school: MotorcycleSchool) -> dict:
         },
         "rating": {
             "rating_count": school.rating_count,
-            "rating_value": school.rating_value,
+            "rating_value": round_float(school.rating_value, 2),
             "review_count": school.review_count,
         },
         "categories": [
@@ -469,8 +522,11 @@ def serialize_school(school: MotorcycleSchool) -> dict:
         ],
         "metro": [
             serialize_school_metro_link(link)
-            for link in sorted(school.metro_stations, key=lambda item: item.position)
+            for link in sorted(school.metro_stations, key=school_metro_name_sort_key)
         ],
+        "nearest_metro": serialize_school_metro_link(nearest_metro_link)
+        if nearest_metro_link is not None
+        else None,
         "phones": [
             {
                 "number": phone.number,
@@ -506,6 +562,50 @@ def build_yandex_maps_reviews_url(school: MotorcycleSchool) -> str | None:
     if org_url is None:
         return None
     return f"{org_url}reviews/"
+
+
+def round_float(value: float | None, ndigits: int) -> float | None:
+    return round(value, ndigits) if value is not None else None
+
+
+def get_nearest_school_metro_link(
+    links: list[SchoolMetroStation],
+    metro_station_ids: list[int] | None = None,
+) -> SchoolMetroStation | None:
+    matching_links = [
+        link
+        for link in links
+        if metro_station_ids is None or link.station_id in metro_station_ids
+    ]
+    return min(matching_links, key=school_metro_distance_sort_key, default=None)
+
+
+def get_school_nearest_metro_distance(
+    school: MotorcycleSchool,
+    metro_station_ids: list[int] | None = None,
+) -> float | None:
+    link = get_nearest_school_metro_link(school.metro_stations, metro_station_ids)
+    return link.distance_value if link is not None else None
+
+
+def school_metro_distance_sort_key(link: SchoolMetroStation) -> tuple:
+    return (
+        link.distance_value is None,
+        link.distance_value if link.distance_value is not None else 0,
+        link.station.name.casefold(),
+        link.station.id,
+    )
+
+
+def school_metro_name_sort_key(link: SchoolMetroStation) -> tuple:
+    station = link.station
+    line = station.line
+    return (
+        station.name.casefold(),
+        line.number if line is not None else "",
+        line.name.casefold() if line is not None else "",
+        station.id,
+    )
 
 
 def serialize_school_metro_link(link: SchoolMetroStation) -> dict:
