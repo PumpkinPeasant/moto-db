@@ -263,6 +263,7 @@ def _page_from_url(url: str) -> int:
 
 
 def _setup_standalone_logging() -> None:
+    sys.stdout.reconfigure(encoding="utf-8", line_buffering=True)
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s  %(message)s",

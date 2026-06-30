@@ -74,6 +74,7 @@ def main() -> None:
                         help="Перезагружать даже если файл уже есть")
     args = parser.parse_args()
 
+    sys.stdout.reconfigure(encoding="utf-8", line_buffering=True)
     setup_logging()
     log = logging.getLogger(__name__)
 
