@@ -517,6 +517,9 @@ def serialize_school_metro_link(link: SchoolMetroStation) -> dict:
         "distance": link.distance,
         "distance_value": link.distance_value,
         "is_active": station.is_active,
+        "line_number": line.number if line is not None else None,
+        "line_name": line.name if line is not None else None,
+        "line_color": line.color if line is not None else None,
         "line": {
             "id": line.id,
             "name": line.name,
