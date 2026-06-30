@@ -24,6 +24,7 @@ from app.models import (
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DB_PATH = PROJECT_ROOT / "moto.sqlite"
 DATABASE_URL = f"sqlite:///{DB_PATH}"
+YANDEX_MAPS_ORG_URL = "https://yandex.ru/maps/org"
 
 engine = create_engine(
     DATABASE_URL,
@@ -331,6 +332,8 @@ def serialize_school(school: MotorcycleSchool) -> dict:
         "additional_address": school.additional_address,
         "seoname": school.seoname,
         "avatar_url": school.avatar_url,
+        "map_url": build_yandex_maps_org_url(school),
+        "reviews_url": build_yandex_maps_reviews_url(school),
         "coordinates": {
             "longitude": school.longitude,
             "latitude": school.latitude,
@@ -375,6 +378,19 @@ def serialize_school(school: MotorcycleSchool) -> dict:
             url.url for url in sorted(school.urls, key=lambda item: item.position)
         ],
     }
+
+
+def build_yandex_maps_org_url(school: MotorcycleSchool) -> str | None:
+    if not school.seoname or not school.yandex_id:
+        return None
+    return f"{YANDEX_MAPS_ORG_URL}/{school.seoname}/{school.yandex_id}/"
+
+
+def build_yandex_maps_reviews_url(school: MotorcycleSchool) -> str | None:
+    org_url = build_yandex_maps_org_url(school)
+    if org_url is None:
+        return None
+    return f"{org_url}reviews/"
 
 
 def serialize_school_metro_link(link: SchoolMetroStation) -> dict:
