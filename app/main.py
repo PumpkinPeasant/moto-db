@@ -60,6 +60,8 @@ SCHOOL_SORT_FIELDS = {
 SCHOOL_SORT_FIELD_NAMES = (*SCHOOL_SORT_FIELDS.keys(), "metro_distance")
 SORT_ORDERS = ("asc", "desc")
 TITLE_SEARCH_MIN_SCORE = 0.72
+MOTORCYCLE_SCHOOL_CATEGORY_SEONAME = "motorcycle_school"
+DRIVING_SCHOOL_CATEGORY_SEONAME = "driving_school"
 
 EN_KEYBOARD = "`qwertyuiop[]asdfghjkl;'zxcvbnm,."
 RU_KEYBOARD = "ёйцукенгшщзхъфывапролджэячсмитьбю"
@@ -250,6 +252,7 @@ def list_schools(
     session: SessionDep,
     search: str | None = Query(default=None, min_length=1),
     category_id: list[int] | None = Query(default=None),
+    only_moto: bool = Query(default=False),
     metro_station_id: list[int] | None = Query(default=None),
     social_type_code: list[str] | None = Query(default=None),
     min_rating: float | None = Query(default=None, ge=0, le=5),
@@ -264,6 +267,22 @@ def list_schools(
         filters.append(
             MotorcycleSchool.categories.any(
                 SchoolCategory.category_id.in_(category_id)
+            )
+        )
+
+    if only_moto:
+        filters.append(
+            MotorcycleSchool.categories.any(
+                SchoolCategory.category.has(
+                    Category.seoname == MOTORCYCLE_SCHOOL_CATEGORY_SEONAME
+                )
+            )
+        )
+        filters.append(
+            ~MotorcycleSchool.categories.any(
+                SchoolCategory.category.has(
+                    Category.seoname == DRIVING_SCHOOL_CATEGORY_SEONAME
+                )
             )
         )
 
