@@ -379,6 +379,8 @@ def title_search_min_score(query: str) -> float:
         return 0.9
     if query_length <= 5:
         return 0.8
+    if query_length >= 8:
+        return 0.77
     return TITLE_SEARCH_MIN_SCORE
 
 
