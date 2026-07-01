@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 import re
+from datetime import date
 from pathlib import Path
 from typing import Annotated
 
 import cyrtranslit
 from fastapi import Depends, FastAPI, HTTPException, Query
 from rapidfuzz import fuzz
-from sqlalchemy import create_engine, func, or_, select
+from sqlalchemy import case, create_engine, func, or_, select
 from sqlalchemy.orm import Session, selectinload, sessionmaker
 
 from app.models import (
@@ -19,6 +20,7 @@ from app.models import (
     MotorcycleSchool,
     SchoolCategory,
     SchoolMetroStation,
+    SchoolReview,
     SchoolSocialLink,
     SocialNetworkType,
 )
@@ -62,6 +64,7 @@ SORT_ORDERS = ("asc", "desc")
 TITLE_SEARCH_MIN_SCORE = 0.72
 MOTORCYCLE_SCHOOL_CATEGORY_SEONAME = "motorcycle_school"
 DRIVING_SCHOOL_CATEGORY_SEONAME = "driving_school"
+POSITIVE_REVIEW_MIN_RATING = 4
 
 EN_KEYBOARD = "`qwertyuiop[]asdfghjkl;'zxcvbnm,."
 RU_KEYBOARD = "ёйцукенгшщзхъфывапролджэячсмитьбю"
@@ -240,6 +243,7 @@ def autocomplete_schools(
             "yandex_id": school.yandex_id,
             "title": school.title,
             "address": school.address,
+            "slug": school.slug,
             "avatar_url": school.avatar_url,
             "rating_value": round_float(school.rating_value, 2),
         }
@@ -332,6 +336,159 @@ def list_schools(
         "sort_order": sort_order,
         "items": [serialize_school(school) for school in schools_page],
     }
+
+
+@app.get("/analytics/reviews/by-date")
+def reviews_by_date(
+    session: SessionDep,
+    school_id: list[int] | None = Query(default=None),
+    date_from: date | None = Query(default=None),
+    date_to: date | None = Query(default=None),
+    only_moto: bool = Query(default=False),
+) -> dict:
+    filters = build_review_analytics_filters(
+        school_id=school_id,
+        date_from=date_from,
+        date_to=date_to,
+        only_moto=only_moto,
+    )
+    review_date = func.date(SchoolReview.updated_time).label("date")
+    rows = session.execute(
+        select(
+            review_date,
+            func.count().label("total"),
+            func.sum(
+                case_when_review_is_positive(1, 0)
+            ).label("positive"),
+            func.sum(
+                case_when_review_is_negative(1, 0)
+            ).label("negative"),
+            func.avg(SchoolReview.rating).label("average_rating"),
+        )
+        .where(*filters, SchoolReview.updated_time.is_not(None))
+        .group_by(review_date)
+        .order_by(review_date.asc())
+    ).all()
+
+    return {
+        "date_from": date_from.isoformat() if date_from else None,
+        "date_to": date_to.isoformat() if date_to else None,
+        "school_id": school_id,
+        "only_moto": only_moto,
+        "items": [
+            {
+                "date": row.date,
+                "total": row.total,
+                "positive": row.positive or 0,
+                "negative": row.negative or 0,
+                "average_rating": round_float(row.average_rating, 2),
+            }
+            for row in rows
+        ],
+    }
+
+
+@app.get("/analytics/reviews/sentiment")
+def review_sentiment_distribution(
+    session: SessionDep,
+    school_id: list[int] | None = Query(default=None),
+    date_from: date | None = Query(default=None),
+    date_to: date | None = Query(default=None),
+    only_moto: bool = Query(default=False),
+) -> dict:
+    filters = build_review_analytics_filters(
+        school_id=school_id,
+        date_from=date_from,
+        date_to=date_to,
+        only_moto=only_moto,
+    )
+    row = session.execute(
+        select(
+            func.count().label("total"),
+            func.sum(case_when_review_is_positive(1, 0)).label("positive"),
+            func.sum(case_when_review_is_negative(1, 0)).label("negative"),
+        ).where(*filters)
+    ).one()
+    total = row.total or 0
+    positive = row.positive or 0
+    negative = row.negative or 0
+
+    return {
+        "date_from": date_from.isoformat() if date_from else None,
+        "date_to": date_to.isoformat() if date_to else None,
+        "school_id": school_id,
+        "only_moto": only_moto,
+        "total": total,
+        "items": [
+            {
+                "type": "positive",
+                "label": "Положительные",
+                "count": positive,
+                "share": round_float(positive / total, 4) if total else 0,
+            },
+            {
+                "type": "negative",
+                "label": "Отрицательные",
+                "count": negative,
+                "share": round_float(negative / total, 4) if total else 0,
+            },
+        ],
+    }
+
+
+def build_review_analytics_filters(
+    school_id: list[int] | None,
+    date_from: date | None,
+    date_to: date | None,
+    only_moto: bool,
+) -> list:
+    filters = [SchoolReview.rating.is_not(None)]
+    if school_id:
+        filters.append(SchoolReview.school_id.in_(school_id))
+    if date_from:
+        filters.append(func.date(SchoolReview.updated_time) >= date_from.isoformat())
+    if date_to:
+        filters.append(func.date(SchoolReview.updated_time) <= date_to.isoformat())
+    if only_moto:
+        filters.append(
+            SchoolReview.school.has(
+                MotorcycleSchool.categories.any(
+                    SchoolCategory.category.has(
+                        Category.seoname == MOTORCYCLE_SCHOOL_CATEGORY_SEONAME
+                    )
+                )
+            )
+        )
+        filters.append(
+            SchoolReview.school.has(
+                ~MotorcycleSchool.categories.any(
+                    SchoolCategory.category.has(
+                        Category.seoname == DRIVING_SCHOOL_CATEGORY_SEONAME
+                    )
+                )
+            )
+        )
+    return filters
+
+
+def case_when_review_is_positive(positive_value: int, negative_value: int):
+    return review_rating_case(
+        SchoolReview.rating >= POSITIVE_REVIEW_MIN_RATING,
+        positive_value,
+        negative_value,
+    )
+
+
+def case_when_review_is_negative(positive_value: int, negative_value: int):
+    return review_rating_case(
+        SchoolReview.rating < POSITIVE_REVIEW_MIN_RATING,
+        positive_value,
+        negative_value,
+    )
+
+
+def review_rating_case(condition, positive_value: int, negative_value: int):
+    return case((condition, positive_value), else_=negative_value)
 
 
 def filter_schools_by_title_search(
@@ -480,6 +637,48 @@ def normalize_search_text(value: str) -> str:
     return re.sub(r"[^0-9a-zа-я]+", "", normalized)
 
 
+@app.get("/schools/by-seoname/{seoname}")
+def get_school_by_seoname(
+    seoname: str,
+    session: SessionDep,
+    yandex_id: str | None = Query(default=None),
+) -> dict:
+    filters = [MotorcycleSchool.seoname == seoname]
+    if yandex_id:
+        filters.append(MotorcycleSchool.yandex_id == yandex_id)
+
+    schools = session.scalars(
+        select(MotorcycleSchool)
+        .where(*filters)
+        .options(*school_load_options())
+        .order_by(
+            MotorcycleSchool.rating_value.desc().nullslast(),
+            MotorcycleSchool.review_count.desc().nullslast(),
+            MotorcycleSchool.title.asc(),
+            MotorcycleSchool.id.asc(),
+        )
+    ).all()
+    if not schools:
+        raise HTTPException(status_code=404, detail="School not found")
+
+    result = serialize_school(schools[0])
+    result["matches_total"] = len(schools)
+    return result
+
+
+@app.get("/schools/by-slug/{slug}")
+def get_school_by_slug(slug: str, session: SessionDep) -> dict:
+    school = session.scalar(
+        select(MotorcycleSchool)
+        .where(MotorcycleSchool.slug == slug)
+        .options(*school_load_options())
+    )
+    if school is None:
+        raise HTTPException(status_code=404, detail="School not found")
+
+    return serialize_school(school)
+
+
 @app.get("/schools/{school_id}")
 def get_school(school_id: int, session: SessionDep) -> dict:
     school = session.scalar(
@@ -518,6 +717,7 @@ def serialize_school(school: MotorcycleSchool) -> dict:
         "address": school.address,
         "additional_address": school.additional_address,
         "seoname": school.seoname,
+        "slug": school.slug,
         "avatar_url": school.avatar_url,
         "map_url": build_yandex_maps_org_url(school),
         "reviews_url": build_yandex_maps_reviews_url(school),
