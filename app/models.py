@@ -156,6 +156,23 @@ class SchoolCategory(Base):
     category: Mapped[Category] = relationship(back_populates="schools")
 
 
+class Service(Base):
+    __tablename__ = "services"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    code: Mapped[str] = mapped_column(String(64), unique=True, nullable=False)
+    name: Mapped[str] = mapped_column(Text, nullable=False)
+    position: Mapped[int] = mapped_column(Integer, nullable=False)
+    is_active: Mapped[bool] = mapped_column(
+        Boolean, nullable=False, server_default="1", default=True
+    )
+
+    __table_args__ = (
+        Index("ix_services_name", "name"),
+        Index("ix_services_position", "position"),
+    )
+
+
 class MetroLine(Base):
     __tablename__ = "metro_lines"
 

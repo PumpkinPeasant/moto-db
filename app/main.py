@@ -23,6 +23,7 @@ from app.models import (
     SchoolReview,
     SchoolSocialLink,
     SocialNetworkType,
+    Service,
 )
 
 
@@ -224,6 +225,45 @@ def autocomplete_social_network_types(
         {"code": social_type.code, "name": social_type.name}
         for social_type in session.scalars(stmt).all()
     ]
+
+
+@app.get("/services")
+def list_services(
+    session: SessionDep,
+    active_only: bool = Query(default=True),
+) -> list[dict]:
+    stmt = select(Service).order_by(Service.position.asc(), Service.name.asc())
+    if active_only:
+        stmt = stmt.where(Service.is_active.is_(True))
+    return [serialize_service(service) for service in session.scalars(stmt).all()]
+
+
+@app.get("/autocomplete/services")
+def autocomplete_services(
+    session: SessionDep,
+    q: str | None = Query(default=None, min_length=1),
+    limit: int = Query(default=20, ge=1, le=100),
+) -> list[dict]:
+    stmt = (
+        select(Service)
+        .where(Service.is_active.is_(True))
+        .order_by(Service.position.asc(), Service.name.asc())
+        .limit(limit)
+    )
+    if q:
+        like = f"%{q}%"
+        stmt = stmt.where(or_(Service.name.ilike(like), Service.code.ilike(like)))
+    return [serialize_service(service) for service in session.scalars(stmt).all()]
+
+
+def serialize_service(service: Service) -> dict:
+    return {
+        "id": service.id,
+        "code": service.code,
+        "name": service.name,
+        "position": service.position,
+        "is_active": service.is_active,
+    }
 
 
 @app.get("/autocomplete/schools")
