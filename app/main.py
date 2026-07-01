@@ -15,6 +15,7 @@ from app.models import (
     AdministrativeArea,
     Category,
     District,
+    FleetMotorcycle,
     MetroLine,
     MetroStation,
     MotorcycleSchool,
@@ -263,6 +264,65 @@ def serialize_service(service: Service) -> dict:
         "name": service.name,
         "position": service.position,
         "is_active": service.is_active,
+    }
+
+
+@app.get("/fleet")
+def list_fleet(
+    session: SessionDep,
+    active_only: bool = Query(default=True),
+) -> list[dict]:
+    stmt = select(FleetMotorcycle).order_by(
+        FleetMotorcycle.position.asc(),
+        FleetMotorcycle.display_name.asc(),
+    )
+    if active_only:
+        stmt = stmt.where(FleetMotorcycle.is_active.is_(True))
+    return [
+        serialize_fleet_motorcycle(motorcycle)
+        for motorcycle in session.scalars(stmt).all()
+    ]
+
+
+@app.get("/autocomplete/fleet")
+def autocomplete_fleet(
+    session: SessionDep,
+    q: str | None = Query(default=None, min_length=1),
+    limit: int = Query(default=20, ge=1, le=100),
+) -> list[dict]:
+    stmt = (
+        select(FleetMotorcycle)
+        .where(FleetMotorcycle.is_active.is_(True))
+        .order_by(FleetMotorcycle.position.asc(), FleetMotorcycle.display_name.asc())
+        .limit(limit)
+    )
+    if q:
+        like = f"%{q}%"
+        stmt = stmt.where(
+            or_(
+                FleetMotorcycle.display_name.ilike(like),
+                FleetMotorcycle.brand.ilike(like),
+                FleetMotorcycle.model.ilike(like),
+                FleetMotorcycle.code.ilike(like),
+            )
+        )
+    return [
+        serialize_fleet_motorcycle(motorcycle)
+        for motorcycle in session.scalars(stmt).all()
+    ]
+
+
+def serialize_fleet_motorcycle(motorcycle: FleetMotorcycle) -> dict:
+    return {
+        "id": motorcycle.id,
+        "code": motorcycle.code,
+        "brand": motorcycle.brand,
+        "model": motorcycle.model,
+        "display_name": motorcycle.display_name,
+        "category": motorcycle.category,
+        "engine_cc": motorcycle.engine_cc,
+        "position": motorcycle.position,
+        "is_active": motorcycle.is_active,
     }
 
 

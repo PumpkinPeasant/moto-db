@@ -173,6 +173,29 @@ class Service(Base):
     )
 
 
+class FleetMotorcycle(Base):
+    __tablename__ = "fleet"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    code: Mapped[str] = mapped_column(String(96), unique=True, nullable=False)
+    brand: Mapped[str] = mapped_column(Text, nullable=False)
+    model: Mapped[str] = mapped_column(Text, nullable=False)
+    display_name: Mapped[str] = mapped_column(Text, nullable=False)
+    category: Mapped[str | None] = mapped_column(String(32))
+    engine_cc: Mapped[int | None] = mapped_column(Integer)
+    position: Mapped[int] = mapped_column(Integer, nullable=False)
+    is_active: Mapped[bool] = mapped_column(
+        Boolean, nullable=False, server_default="1", default=True
+    )
+
+    __table_args__ = (
+        Index("ix_fleet_brand", "brand"),
+        Index("ix_fleet_model", "model"),
+        Index("ix_fleet_display_name", "display_name"),
+        Index("ix_fleet_position", "position"),
+    )
+
+
 class MetroLine(Base):
     __tablename__ = "metro_lines"
 

@@ -15,6 +15,8 @@
 - связи школ с метро и дистанциями до станций;
 - телефоны, сайты и социальные ссылки;
 - отзывы Яндекс.Карт;
+- локальный каталог услуг;
+- локальный справочник мототехники `fleet`;
 - локальные уникальные `slug` для страниц школ.
 
 В репозиторий база может не попадать из-за ограничения по весу. Если нужен
@@ -200,6 +202,22 @@ yaguar-150942837607
 alyans-1293185190
 ```
 
+### 8. Создать локальные справочники
+
+Услуги хранятся в таблице `services` и пока задаются в коде:
+
+```bash
+python -m scripts.seed_services
+```
+
+Справочник мототехники хранится в таблице `fleet`. Сейчас исходный список
+мотиков не задан, поэтому `scripts.seed_fleet` создает таблицу и готов к
+идемпотентной загрузке данных после заполнения `FLEET`:
+
+```bash
+python -m scripts.seed_fleet
+```
+
 ## Основные таблицы
 
 ### motorcycle_schools
@@ -249,6 +267,46 @@ Many-to-many связь школ и категорий.
 
 - `school_id -> motorcycle_schools.id`;
 - `category_id -> categories.id`.
+
+### services
+
+Локальный справочник услуг.
+
+Поля:
+
+- `id`;
+- `code` — стабильный код услуги;
+- `name`;
+- `position`;
+- `is_active`.
+
+Индексы:
+
+- `ix_services_name`;
+- `ix_services_position`.
+
+### fleet
+
+Локальный справочник мототехники.
+
+Поля:
+
+- `id`;
+- `code` — стабильный код мотоцикла;
+- `brand`;
+- `model`;
+- `display_name`;
+- `category` — категория прав или внутренний тип, если понадобится;
+- `engine_cc`;
+- `position`;
+- `is_active`.
+
+Индексы:
+
+- `ix_fleet_brand`;
+- `ix_fleet_model`;
+- `ix_fleet_display_name`;
+- `ix_fleet_position`.
 
 ### metro_lines
 
@@ -435,6 +493,13 @@ https://yandex.ru/maps/org/{business_id}/reviews?reviews%5BpublicId%5D={author_p
 - `rating >= 4` — positive;
 - `rating < 4` — negative.
 
+### Локальные справочники
+
+- `GET /services`;
+- `GET /autocomplete/services`;
+- `GET /fleet`;
+- `GET /autocomplete/fleet`.
+
 ## Локальные изменения базы
 
 Если `moto.sqlite` не коммитится из-за размера, кодовые миграции/бэкфиллы
@@ -445,6 +510,8 @@ python -m scripts.import_extracted_to_sqlite --reset
 python -m scripts.enrich_metro_from_mos --input path/to/data-1488.json
 python -m scripts.import_reviews_to_sqlite
 python -m scripts.backfill_school_slugs
+python -m scripts.seed_services
+python -m scripts.seed_fleet
 ```
 
 Если `parser/output` уже содержит JSON-отзывы, повторно скачивать отзывы не
