@@ -368,6 +368,11 @@ def reviews_by_date(
                 case_when_review_is_negative(1, 0)
             ).label("negative"),
             func.avg(SchoolReview.rating).label("average_rating"),
+            func.sum(case((SchoolReview.rating == 5, 1), else_=0)).label("rating_5"),
+            func.sum(case((SchoolReview.rating == 4, 1), else_=0)).label("rating_4"),
+            func.sum(case((SchoolReview.rating == 3, 1), else_=0)).label("rating_3"),
+            func.sum(case((SchoolReview.rating == 2, 1), else_=0)).label("rating_2"),
+            func.sum(case((SchoolReview.rating == 1, 1), else_=0)).label("rating_1"),
         )
         .where(*filters, SchoolReview.updated_time.is_not(None))
         .group_by(review_date)
@@ -386,6 +391,13 @@ def reviews_by_date(
                 "positive": row.positive or 0,
                 "negative": row.negative or 0,
                 "average_rating": round_float(row.average_rating, 2),
+                "ratings": {
+                    "5": row.rating_5 or 0,
+                    "4": row.rating_4 or 0,
+                    "3": row.rating_3 or 0,
+                    "2": row.rating_2 or 0,
+                    "1": row.rating_1 or 0,
+                },
             }
             for row in rows
         ],
