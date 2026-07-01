@@ -824,11 +824,21 @@ def list_school_reviews(
     }
 
 
+YAPIC_AVATAR_SIZE = "islands-68"
+
+
+def resolve_avatar_url(url: str | None, size: str = YAPIC_AVATAR_SIZE) -> str | None:
+    """Подставляет размер в шаблон аватарки Яндекса (…/get-yapic/…/{size})."""
+    if not url:
+        return url
+    return url.replace("{size}", size)
+
+
 def serialize_review(review: SchoolReview) -> dict:
     return {
         "id": review.id,
         "author_name": review.author_name,
-        "author_avatar_url": review.author_avatar_url,
+        "author_avatar_url": resolve_avatar_url(review.author_avatar_url),
         "text": review.text,
         "rating": review.rating,
         "updated_time": review.updated_time.isoformat() if review.updated_time else None,
