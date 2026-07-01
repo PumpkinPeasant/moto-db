@@ -775,6 +775,69 @@ def get_school(school_id: int, session: SessionDep) -> dict:
     return serialize_school(school, moto_guide_rating_for(session, school.id))
 
 
+REVIEW_SORT_FIELDS = {
+    "date": SchoolReview.updated_time,
+    "rating": SchoolReview.rating,
+    "likes": SchoolReview.likes,
+}
+
+
+@app.get("/schools/{school_id}/reviews")
+def list_school_reviews(
+    school_id: int,
+    session: SessionDep,
+    search: str | None = Query(default=None, min_length=1),
+    rating: int | None = Query(default=None, ge=1, le=5),
+    sort_by: str = Query(default="date", enum=tuple(REVIEW_SORT_FIELDS.keys())),
+    sort_order: str = Query(default="desc", enum=SORT_ORDERS),
+    page: int = Query(default=1, ge=1),
+    per_page: int = Query(default=10, ge=1, le=50),
+) -> dict:
+    filters = [SchoolReview.school_id == school_id]
+    if rating is not None:
+        filters.append(SchoolReview.rating == rating)
+    if search:
+        filters.append(SchoolReview.text.ilike(f"%{search}%"))
+
+    sort_column = REVIEW_SORT_FIELDS[sort_by]
+    primary_sort = (
+        sort_column.asc().nullslast()
+        if sort_order == "asc"
+        else sort_column.desc().nullslast()
+    )
+    order_by = [primary_sort, SchoolReview.id.desc()]
+
+    base_stmt = select(SchoolReview).where(*filters)
+    total = session.scalar(select(func.count()).select_from(base_stmt.subquery()))
+    offset = (page - 1) * per_page
+    reviews = session.scalars(
+        base_stmt.order_by(*order_by).offset(offset).limit(per_page)
+    ).all()
+
+    return {
+        "page": page,
+        "per_page": per_page,
+        "total": total,
+        "sort_by": sort_by,
+        "sort_order": sort_order,
+        "items": [serialize_review(review) for review in reviews],
+    }
+
+
+def serialize_review(review: SchoolReview) -> dict:
+    return {
+        "id": review.id,
+        "author_name": review.author_name,
+        "author_avatar_url": review.author_avatar_url,
+        "text": review.text,
+        "rating": review.rating,
+        "updated_time": review.updated_time.isoformat() if review.updated_time else None,
+        "likes": review.likes,
+        "dislikes": review.dislikes,
+        "review_url": review.review_url,
+    }
+
+
 def school_load_options() -> list:
     metro_station = selectinload(MotorcycleSchool.metro_stations).selectinload(
         SchoolMetroStation.station
