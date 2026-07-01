@@ -440,6 +440,45 @@ def review_sentiment_distribution(
     }
 
 
+@app.get("/analytics/reviews/rating-distribution")
+def review_rating_distribution(
+    session: SessionDep,
+    school_id: list[int] | None = Query(default=None),
+    date_from: date | None = Query(default=None),
+    date_to: date | None = Query(default=None),
+    only_moto: bool = Query(default=False),
+) -> dict:
+    filters = build_review_analytics_filters(
+        school_id=school_id,
+        date_from=date_from,
+        date_to=date_to,
+        only_moto=only_moto,
+    )
+    rows = session.execute(
+        select(SchoolReview.rating, func.count().label("count"))
+        .where(*filters)
+        .group_by(SchoolReview.rating)
+    ).all()
+    counts = {int(row.rating): row.count for row in rows if row.rating is not None}
+    total = sum(counts.values())
+
+    return {
+        "date_from": date_from.isoformat() if date_from else None,
+        "date_to": date_to.isoformat() if date_to else None,
+        "school_id": school_id,
+        "only_moto": only_moto,
+        "total": total,
+        "items": [
+            {
+                "rating": star,
+                "count": counts.get(star, 0),
+                "share": round_float(counts.get(star, 0) / total, 4) if total else 0,
+            }
+            for star in (5, 4, 3, 2, 1)
+        ],
+    }
+
+
 def build_review_analytics_filters(
     school_id: list[int] | None,
     date_from: date | None,
