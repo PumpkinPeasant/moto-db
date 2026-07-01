@@ -260,6 +260,7 @@ def list_schools(
     metro_station_id: list[int] | None = Query(default=None),
     social_type_code: list[str] | None = Query(default=None),
     min_rating: float | None = Query(default=None, ge=0, le=5),
+    max_rating: float | None = Query(default=None, ge=0, le=5),
     page: int = Query(default=1, ge=1),
     per_page: int = Query(default=20, ge=1, le=100),
     sort_by: str = Query(default="rating_value", enum=SCHOOL_SORT_FIELD_NAMES),
@@ -306,6 +307,9 @@ def list_schools(
 
     if min_rating is not None:
         filters.append(MotorcycleSchool.rating_value >= min_rating)
+
+    if max_rating is not None:
+        filters.append(MotorcycleSchool.rating_value <= max_rating)
 
     offset = (page - 1) * per_page
     order_by = build_school_order_by(sort_by, sort_order, metro_station_id)
