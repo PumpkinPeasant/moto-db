@@ -50,10 +50,23 @@ def get_session() -> Session:
 
 SessionDep = Annotated[Session, Depends(get_session)]
 
+# Оценка MotoGuide (пока = среднее всех оценок отзывов школы) как коррелированный
+# подзапрос — используется для фильтрации и сортировки списка.
+MOTO_GUIDE_RATING_EXPR = (
+    select(func.avg(SchoolReview.rating))
+    .where(
+        SchoolReview.school_id == MotorcycleSchool.id,
+        SchoolReview.rating.is_not(None),
+    )
+    .correlate(MotorcycleSchool)
+    .scalar_subquery()
+)
+
 SCHOOL_SORT_FIELDS = {
     "title": MotorcycleSchool.title,
     "address": MotorcycleSchool.address,
     "rating_value": MotorcycleSchool.rating_value,
+    "moto_guide_rating": MOTO_GUIDE_RATING_EXPR,
     "rating_count": MotorcycleSchool.rating_count,
     "review_count": MotorcycleSchool.review_count,
     "created_at": MotorcycleSchool.created_at,
@@ -306,10 +319,10 @@ def list_schools(
         )
 
     if min_rating is not None:
-        filters.append(MotorcycleSchool.rating_value >= min_rating)
+        filters.append(MOTO_GUIDE_RATING_EXPR >= min_rating)
 
     if max_rating is not None:
-        filters.append(MotorcycleSchool.rating_value <= max_rating)
+        filters.append(MOTO_GUIDE_RATING_EXPR <= max_rating)
 
     offset = (page - 1) * per_page
     order_by = build_school_order_by(sort_by, sort_order, metro_station_id)
@@ -318,6 +331,12 @@ def list_schools(
     if search:
         schools = session.scalars(base_stmt.options(*school_load_options())).all()
         matched_schools = filter_schools_by_title_search(search, schools)
+        if sort_by == "moto_guide_rating":
+            ratings = compute_moto_guide_ratings(
+                session, [school.id for school in matched_schools]
+            )
+            for school in matched_schools:
+                school.moto_guide_rating = ratings.get(school.id)
         sorted_schools = sort_schools_in_memory(
             matched_schools, sort_by, sort_order, metro_station_id
         )
@@ -332,13 +351,20 @@ def list_schools(
             .limit(per_page)
         ).all()
 
+    moto_guide_ratings = compute_moto_guide_ratings(
+        session, [school.id for school in schools_page]
+    )
+
     return {
         "page": page,
         "per_page": per_page,
         "total": total,
         "sort_by": sort_by,
         "sort_order": sort_order,
-        "items": [serialize_school(school) for school in schools_page],
+        "items": [
+            serialize_school(school, moto_guide_ratings.get(school.id))
+            for school in schools_page
+        ],
     }
 
 
@@ -716,7 +742,9 @@ def get_school_by_seoname(
     if not schools:
         raise HTTPException(status_code=404, detail="School not found")
 
-    result = serialize_school(schools[0])
+    result = serialize_school(
+        schools[0], moto_guide_rating_for(session, schools[0].id)
+    )
     result["matches_total"] = len(schools)
     return result
 
@@ -731,7 +759,7 @@ def get_school_by_slug(slug: str, session: SessionDep) -> dict:
     if school is None:
         raise HTTPException(status_code=404, detail="School not found")
 
-    return serialize_school(school)
+    return serialize_school(school, moto_guide_rating_for(session, school.id))
 
 
 @app.get("/schools/{school_id}")
@@ -744,7 +772,7 @@ def get_school(school_id: int, session: SessionDep) -> dict:
     if school is None:
         raise HTTPException(status_code=404, detail="School not found")
 
-    return serialize_school(school)
+    return serialize_school(school, moto_guide_rating_for(session, school.id))
 
 
 def school_load_options() -> list:
@@ -763,7 +791,35 @@ def school_load_options() -> list:
     ]
 
 
-def serialize_school(school: MotorcycleSchool) -> dict:
+def compute_moto_guide_ratings(
+    session: Session, school_ids: list[int]
+) -> dict[int, float | None]:
+    """MotoGuide-оценка (пока = среднее всех оценок отзывов, округление до 3 знаков)."""
+    if not school_ids:
+        return {}
+
+    rows = session.execute(
+        select(
+            SchoolReview.school_id,
+            func.avg(SchoolReview.rating).label("average_rating"),
+        )
+        .where(
+            SchoolReview.school_id.in_(school_ids),
+            SchoolReview.rating.is_not(None),
+        )
+        .group_by(SchoolReview.school_id)
+    ).all()
+
+    return {row.school_id: round_float(row.average_rating, 3) for row in rows}
+
+
+def moto_guide_rating_for(session: Session, school_id: int) -> float | None:
+    return compute_moto_guide_ratings(session, [school_id]).get(school_id)
+
+
+def serialize_school(
+    school: MotorcycleSchool, moto_guide_rating: float | None = None
+) -> dict:
     nearest_metro_link = get_nearest_school_metro_link(school.metro_stations)
     return {
         "id": school.id,
@@ -784,6 +840,7 @@ def serialize_school(school: MotorcycleSchool) -> dict:
             "rating_count": school.rating_count,
             "rating_value": round_float(school.rating_value, 2),
             "review_count": school.review_count,
+            "moto_guide_value": moto_guide_rating,
         },
         "categories": [
             {
